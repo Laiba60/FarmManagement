@@ -17,25 +17,6 @@ app.use('/api/auth', authRoutes);
 const dashboardRoutes = require('./routes/dashboard');
 app.use('/api/dashboard', dashboardRoutes);
 
-// **New routes added here**
-const robotRoutes = require('./routes/robots');
-app.use('/api/robots', robotRoutes);
-const missionRoutes = require('./routes/mission');
-
-app.use('/api/missions', missionRoutes);
-
-const rentalRoutes = require('./routes/rental');
-app.use('/api/rentals', rentalRoutes);
-
-const engineerRoutes = require('./routes/engineer');
-app.use('/api/engineers', engineerRoutes);
-
-const notificationRoutes = require('./routes/notifications');
-app.use('/api/notifications', notificationRoutes);
-
-// Optional chatbot routes
-const chatbotRoutes = require('./routes/chatbot');
-app.use('/api/chatbot', chatbotRoutes);
 
 // Test Routes
 app.get('/', (req, res) => {
