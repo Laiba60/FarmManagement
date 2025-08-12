@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const connectDB = require('./database');
+const setupSwagger = require('./swagger');  // Import swagger setup
 
 const app = express();
 
@@ -10,13 +11,15 @@ app.use(express.json());
 // Connect to MongoDB
 connectDB();
 
+// Swagger docs route
+setupSwagger(app);  // Swagger API docs available at /api-docs
+
 // Routes
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 
 const dashboardRoutes = require('./routes/dashboard');
 app.use('/api/dashboard', dashboardRoutes);
-
 
 // Test Routes
 app.get('/', (req, res) => {
