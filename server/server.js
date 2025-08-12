@@ -20,8 +20,8 @@ app.use('/api/dashboard', dashboardRoutes);
 // **New routes added here**
 const robotRoutes = require('./routes/robots');
 app.use('/api/robots', robotRoutes);
+const missionRoutes = require('./routes/mission');
 
-const missionRoutes = require('./routes/missions');
 app.use('/api/missions', missionRoutes);
 
 const rentalRoutes = require('./routes/rentals');
