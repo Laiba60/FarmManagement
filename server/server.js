@@ -24,10 +24,10 @@ const missionRoutes = require('./routes/mission');
 
 app.use('/api/missions', missionRoutes);
 
-const rentalRoutes = require('./routes/rentals');
+const rentalRoutes = require('./routes/rental');
 app.use('/api/rentals', rentalRoutes);
 
-const engineerRoutes = require('./routes/engineers');
+const engineerRoutes = require('./routes/engineer');
 app.use('/api/engineers', engineerRoutes);
 
 const notificationRoutes = require('./routes/notifications');
