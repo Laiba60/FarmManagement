@@ -1,15 +1,76 @@
-// FILE: routes/chatbot.js
 const express6 = require('express');
 const router6 = express6.Router();
+
 const faqs = [
   { q: 'How to rent a robot?', a: 'Register, login as farmer, choose a robot and create a rental.' },
   { q: 'What is the rent price?', a: 'Rent price varies per robot. Check robot details for monthly price.' },
   { q: 'Who to contact for repairs?', a: 'Contact support or the assigned repairing engineer via dashboard.' }
 ];
-// basic FAQ endpoint
+
+/**
+ * @swagger
+ * tags:
+ *   name: Chatbot
+ *   description: Chatbot and FAQ endpoints
+ */
+
+/**
+ * @swagger
+ * /api/chatbot/faqs:
+ *   get:
+ *     summary: Get list of FAQs
+ *     tags: [Chatbot]
+ *     responses:
+ *       200:
+ *         description: Returns all FAQs
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   q:
+ *                     type: string
+ *                     example: How to rent a robot?
+ *                   a:
+ *                     type: string
+ *                     example: Register, login as farmer, choose a robot and create a rental.
+ */
 router6.get('/faqs', (req, res) => res.json(faqs));
 
-// simple chat endpoint (rule-based)
+/**
+ * @swagger
+ * /api/chatbot/ask:
+ *   post:
+ *     summary: Ask the chatbot a question
+ *     tags: [Chatbot]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - message
+ *             properties:
+ *               message:
+ *                 type: string
+ *                 example: How to rent a robot?
+ *     responses:
+ *       200:
+ *         description: Chatbot reply
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 reply:
+ *                   type: string
+ *                   example: Register, login as farmer, choose a robot and create a rental.
+ *       400:
+ *         description: Bad request (message not provided)
+ */
 router6.post('/ask', (req, res) => {
   const { message } = req.body;
   if (!message) return res.status(400).json({ error: 'Provide message' });

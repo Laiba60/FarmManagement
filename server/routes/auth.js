@@ -6,7 +6,54 @@ require('dotenv').config();
 
 const router = express.Router();
 
-// Register
+/**
+ * @swagger
+ * tags:
+ *   name: Auth
+ *   description: User authentication
+ */
+
+/**
+ * @swagger
+ * /api/auth/register:
+ *   post:
+ *     summary: Register a new user
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - username
+ *               - password
+ *             properties:
+ *               username:
+ *                 type: string
+ *                 example: johndoe
+ *               password:
+ *                 type: string
+ *                 example: password123
+ *               role:
+ *                 type: string
+ *                 example: user
+ *     responses:
+ *       200:
+ *         description: User registered successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: User registered successfully
+ *       400:
+ *         description: Bad request (missing fields or user exists)
+ *       500:
+ *         description: Server error
+ */
 router.post('/register', async (req, res) => {
     try {
         const { username, password, role } = req.body;
@@ -15,14 +62,10 @@ router.post('/register', async (req, res) => {
             return res.status(400).json({ error: 'Username and password are required' });
         }
 
-        // Check if user exists
         const existingUser = await User.findOne({ username });
         if (existingUser) return res.status(400).json({ error: 'User already exists' });
 
-        // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
-
-        // Create user
         const user = new User({ username, password: hashedPassword, role });
         await user.save();
 
@@ -33,20 +76,54 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// Login
+/**
+ * @swagger
+ * /api/auth/login:
+ *   post:
+ *     summary: Login a user
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - username
+ *               - password
+ *             properties:
+ *               username:
+ *                 type: string
+ *                 example: johndoe
+ *               password:
+ *                 type: string
+ *                 example: password123
+ *     responses:
+ *       200:
+ *         description: Successfully logged in
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 token:
+ *                   type: string
+ *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+ *       400:
+ *         description: Invalid credentials
+ *       500:
+ *         description: Server error
+ */
 router.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
 
-        // Find user
         const user = await User.findOne({ username });
         if (!user) return res.status(400).json({ error: 'Invalid credentials' });
 
-        // Compare password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) return res.status(400).json({ error: 'Invalid credentials' });
 
-        // Create token
         const token = jwt.sign(
             { id: user._id, role: user.role },
             process.env.JWT_SECRET,
