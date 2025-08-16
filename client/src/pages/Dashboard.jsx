@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from "react-router-dom";
 const Dashboard = () => {
   return (
   
@@ -22,7 +22,8 @@ const Dashboard = () => {
                         ></path>
                       </svg>
                     </div>
-                    <p className="text-[#0d141c] text-sm font-medium leading-normal">Dashboard</p>
+                    <p className="text-[#0d141c] text-sm font-medium leading-normal">
+                       <Link to="/Agritecdashboard">Dashboard</Link></p>
                   </div>
                   <div className="flex items-center gap-3 px-3 py-2">
                     <div className="text-[#0d141c]" data-icon="Robot" data-size="24px" data-weight="regular">
