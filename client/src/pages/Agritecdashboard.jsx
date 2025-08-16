@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from "react-router-dom";
 const Agritecdashboard = () => {
   return (
 
@@ -57,7 +57,9 @@ const Agritecdashboard = () => {
                         ></path>
                       </svg>
                     </div>
-                    <p className="text-[#0d141c] text-sm font-medium leading-normal">Support</p>
+                    <p className="text-[#0d141c] text-sm font-medium leading-normal">
+                      <Link to="/supportchat">Support</Link></p>
+                    
                   </div>
                   <div className="flex items-center gap-3 px-3 py-2">
                     <div className="text-[#0d141c]" data-icon="User" data-size="24px" data-weight="regular">
