@@ -1,6 +1,13 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate();
+      const handleLogin = () => {
+    // Yahan tum apna login logic bhi add kar sakti ho (API call etc.)
+    // Filhal simple navigation kar dete hain
+    navigate("/dashboard");
+  };
   return (
     <div
       className="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden"
@@ -87,7 +94,9 @@ const Login = () => {
             </div>
 
             <div className="flex px-4 py-3">
-              <button className="flex h-10 flex-1 items-center justify-center rounded-lg bg-blue-600 hover:bg-blue-700
+              <button
+               onClick={handleLogin}
+                className="flex h-10 flex-1 items-center justify-center rounded-lg bg-blue-600 hover:bg-blue-700
 px-4 text-sm font-bold text-slate-50">
                 Log In
               </button>
