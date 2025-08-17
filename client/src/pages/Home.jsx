@@ -1,5 +1,28 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import Picturelogo from "../assets/images/Picturelogo.png";
+import BgImage from "../assets/images/WPS Photo Edit2.png";
+import Dot from "../assets/images/dot.png";
+import Dot2 from "../assets/images/dot2.png";
+import Dot3 from "../assets/images/dot3.png";
+import Icon1 from "../assets/images/icon1.png";
+import Icon2 from "../assets/images/icon2.png";
+import Left from "../assets/images/left.png";
+import Service1 from "../assets/images/service1.png";
+import Service2 from "../assets/images/service2.png";
+import Service3 from "../assets/images/service3.png";
+import Service4 from "../assets/images/service4.png";
+import Bg3 from "../assets/images/bg3.png";
+import Project1 from "../assets/images/project1.png";
+import Project2 from "../assets/images/project2.png";
+import Project3 from "../assets/images/project3.png";
+import Project4 from "../assets/images/project4.png";
+import Testimonial from "../assets/images/testimonial.png";
+import Chose from "../assets/images/chose.png";
+import Blog1 from "../assets/images/blog1.png";
+import Blog2 from "../assets/images/blog2.png";
+import Blog3 from "../assets/images/blog3.png";
+
 const Home = () => {
   
   return (
@@ -13,7 +36,7 @@ const Home = () => {
       >
         
         <div className="flex items-center space-x-2">
-          <img src="src/Picturelogo.png" alt="Logo" className="w-20 h-10" />
+          <img src={Picturelogo} alt="Logo" className="w-20 h-10" />
           <span className="font-bold text-lg text-green-800">AgriBot</span>
         </div>
 
@@ -65,7 +88,7 @@ const Home = () => {
    
     <section
       className="pt-20 bg-cover bg-center w-full"
-   style={{ backgroundImage: "url('/src/WPS Photo Edit2.png')" }}
+   style={{ backgroundImage: `url(${BgImage})` }}
     >
       <div
         className="container mx-auto px-4 md:px-8 py-20 text-white"
@@ -98,7 +121,7 @@ const Home = () => {
         <p className="mt-2 text-black font-bold">We are using new technology</p>
         <div className="flex justify-center">
           <img
-            src="src/dot.png"
+            src={Dot}
             alt=""
             className="w-24 sm:w-32 h-24 sm:h-32 object-cover rounded-lg shadow-md"
           />
@@ -113,7 +136,7 @@ const Home = () => {
         <p className="mt-2 text-black font-bold">Precision spraying robot</p>
         <div className="flex justify-center">
           <img
-            src="src/dot2.png"
+            src={Dot2}
             alt=""
             className="w-24 sm:w-32 h-24 sm:h-32 object-cover rounded-lg shadow-md"
           />
@@ -128,7 +151,7 @@ const Home = () => {
         <p className="mt-2 text-black font-bold">Farm digitalization</p>
         <div className="flex justify-center">
           <img
-            src="src/dot3.png"
+            src={Dot3}
             alt=""
             className="w-24 sm:w-32 h-24 sm:h-32 object-cover rounded-lg shadow-md"
           />
@@ -143,7 +166,7 @@ const Home = () => {
     >
       <div className="md:w-1/2 flex justify-center" data-aos="fade-right">
         <img
-          src="src/left.png"
+          src={Left}
           alt="Farm"
           className="w-full max-w-sm sm:max-w-md lg:max-w-lg object-cover rounded-lg"
         />
@@ -164,7 +187,7 @@ const Home = () => {
         <div className="mt-6 flex flex-col sm:flex-row items-center gap-5">
           <div className="flex items-center gap-2">
             <img
-              src="src/icon1.png"
+              src={Icon1}
               alt="Farm"
               className="w-12 h-12 object-cover rounded-lg"
             />
@@ -172,7 +195,7 @@ const Home = () => {
           </div>
           <div className="flex items-center gap-2">
             <img
-              src="src/icon2.png"
+              src={Icon2}
               alt="Farm"
               className="w-12 h-12 object-cover rounded-lg"
             />
@@ -206,35 +229,35 @@ const Home = () => {
       className="container mx-auto px-4 md:px-8 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 -mt-30 relative z-10"
     >
       <div className="shadow-lg rounded-lg p-6" data-aos="zoom-in">
-        <img src="src/service1.png" alt="" className="mx-auto mb-4" />
+        <img src={Service1} alt="" className="mx-auto mb-4" />
       </div>
       <div
         className="shadow-lg rounded-lg p-6"
         data-aos="zoom-in"
         data-aos-delay="100"
       >
-        <img src="src/service2.png" alt="" className="mx-auto mb-4" />
+        <img src={Service2} alt="" className="mx-auto mb-4" />
       </div>
       <div
         className="shadow-lg rounded-lg p-6"
         data-aos="zoom-in"
         data-aos-delay="200"
       >
-        <img src="src/service3.png" alt="" className="mx-auto mb-4" />
+        <img src={Service3} alt="" className="mx-auto mb-4" />
       </div>
       <div
         className="shadow-lg rounded-lg p-6"
         data-aos="zoom-in"
         data-aos-delay="300"
       >
-        <img src="src/service4.png" alt="" className="mx-auto mb-4" />
+        <img src={Service4} alt="" className="mx-auto mb-4" />
       </div>
     </div>
 
 
     <section
       className="pt-20 h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] bg-cover bg-center bg-no-repeat"
-  style={{ backgroundImage: "url('/bg3.png')" }}
+   style={{ backgroundImage: `url(${Bg3})` }}
     ></section>
 
    
@@ -246,7 +269,7 @@ const Home = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           <div className="rounded-lg overflow-hidden shadow-lg" data-aos="fade-up">
             <img
-              src="src/project1.png"
+              src={Project1}
               alt=""
               className="w-full h-full object-cover"
             />
@@ -257,7 +280,7 @@ const Home = () => {
             data-aos-delay="100"
           >
             <img
-              src="src/project2.png"
+              src={Project2}
               alt=""
               className="w-full h-full object-cover"
             />
@@ -268,7 +291,7 @@ const Home = () => {
             data-aos-delay="200"
           >
             <img
-              src="src/project3.png"
+              src={Project3}
               alt=""
               className="w-full h-full object-cover"
             />
@@ -279,7 +302,7 @@ const Home = () => {
             data-aos-delay="200"
           >
             <img
-              src="src/project4.png"
+              src={Project4}
               alt=""
               className="w-full h-full object-cover"
             />
@@ -310,7 +333,7 @@ const Home = () => {
       </div>
       <div className="md:w-1/2 flex justify-center" data-aos="fade-right">
         <img
-          src="src/testimonial.png"
+          src={Testimonial}
           alt="Farm"
           className="w-full max-w-sm sm:max-w-md lg:max-w-lg object-cover rounded-lg"
         />
@@ -324,7 +347,7 @@ const Home = () => {
       >
         <div className="md:w-1/3" data-aos="fade-right">
           <img
-            src="src/chose.png"
+            src={Chose}
             className="rounded-lg shadow-lg w-full h-auto"
             alt=""
           />
@@ -372,7 +395,7 @@ const Home = () => {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div className="bg-white rounded-lg shadow w-full" data-aos="fade-up">
-            <img src="src/blog1.png" alt="" className="w-full h-auto" />
+            <img src={Blog1} alt="" className="w-full h-auto" />
             <div className="p-4">
               <h3 className="font-semibold mb-2">
                 Bringing Food Production Back To Cities
@@ -387,7 +410,7 @@ const Home = () => {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            <img src="src/blog2.png" alt="" className="w-full h-auto" />
+            <img src={Blog2} alt="" className="w-full h-auto" />
             <div className="p-4">
               <h3 className="font-semibold mb-2">
                 The Future of Farming, Smart Spraying Solutions
@@ -402,7 +425,7 @@ const Home = () => {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            <img src="src/blog3.png" alt="" className="w-full h-auto" />
+            <img src={Blog3} alt="" className="w-full h-auto" />
             <div className="p-4">
               <h3 className="font-semibold mb-2">
                 Agronomy and relation to Other Sciences
@@ -486,7 +509,7 @@ const Home = () => {
               <input
                 type="email"
                 placeholder="Your Email"
-                className="px-4 py-2 w-full border border-white rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none"
+                className="px-4 py-2 w-full border border-gray-300 rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none"
               />
               <button
                 className="bg-green-500 px-4 py-2 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none text-white"
