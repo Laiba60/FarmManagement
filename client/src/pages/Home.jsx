@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Picturelogo from "../assets/images/Picturelogo.png";
 import BgImage from "../assets/images/WPS Photo Edit2.png";
@@ -25,6 +26,7 @@ import Blog2 from "../assets/images/blog2.png";
 import Blog3 from "../assets/images/blog3.png";
 
 const Home = () => {
+    const [isOpen, setIsOpen] = useState(false);
   
   return (
     
@@ -58,7 +60,7 @@ const Home = () => {
         </nav>
 
        
-        <button
+        <button  onClick={() => setIsOpen(!isOpen)}
           className="md:hidden p-2 text-green-700 focus:outline-none"
           id="menu-toggle"
         >
@@ -67,23 +69,22 @@ const Home = () => {
       </div>
 
      
-      <div
-        id="mobile-menu"
-        className="md:hidden hidden flex-col space-y-4 px-4 pb-4 bg-white shadow"
-      >
-        <a
-          href="register.html"
-          target="_blank"
-          className="block bg-green-700 px-4 py-2 rounded text-white text-center"
-          >Register</a
-        >
-        <a
-          href="login.html"
-          target="_blank"
-          className="block bg-green-700 px-4 py-2 rounded text-white text-center"
-          >Login</a
-        >
-      </div>
+     {isOpen && (
+        <div className="md:hidden flex flex-col space-y-4 px-4 pb-4 bg-white shadow">
+          <Link
+            to="/signup"
+            className="block bg-green-700 px-4 py-2 rounded text-white text-center"
+          >
+            Register
+          </Link>
+          <Link
+            to="/login"
+            className="block bg-green-700 px-4 py-2 rounded text-white text-center"
+          >
+            Login
+          </Link>
+        </div>
+      )}
     </header>
 
    
