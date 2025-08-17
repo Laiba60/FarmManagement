@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
     const navigate = useNavigate();
       const handleLogin = () => {
-    // Yahan tum apna login logic bhi add kar sakti ho (API call etc.)
-    // Filhal simple navigation kar dete hain
+    
     navigate("/dashboard");
   };
   return (
@@ -46,7 +45,7 @@ const Login = () => {
         </header>
 
         <div className="px-40 flex flex-1 justify-center py-5">
-          <div className="layout-content-container flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1">
+          <div className="layout-content-container flex flex-col w-[512px]  py-5 max-w-[960px] flex-1">
             <div className="@container">
               <div className="@[480px]:px-4 @[480px]:py-3">
                 <div
