@@ -1,6 +1,7 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 const SupportChat = () => {
+   const navigate = useNavigate();
   return (
     <div
       className="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden"
@@ -24,9 +25,9 @@ const SupportChat = () => {
                 ></path>
               </svg>
             </div>
-            <h2 className="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">
+            <a href="/" className="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">
               FarmBot
-            </h2>
+            </a>
           </div>
           <div className="flex flex-wrap justify-end flex-1 gap-4 sm:gap-8 mt-3 sm:mt-0">
             <div className="flex flex-wrap items-center gap-4 sm:gap-9">
@@ -47,7 +48,8 @@ const SupportChat = () => {
               <button className="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-[#0d80f2] text-slate-50 text-sm font-bold">
                 <span className="truncate">Get Started</span>
               </button>
-              <button className="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-bold">
+              <button
+                 onClick={() => navigate("/login")} className="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-bold">
                 <span className="truncate">Log In</span>
               </button>
             </div>

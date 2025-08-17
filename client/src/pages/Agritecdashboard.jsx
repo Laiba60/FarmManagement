@@ -16,7 +16,7 @@ const Agritecdashboard = () => {
                    style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBubDXRc5dGvENw1Bh-eXC4T4Y741f9lkVY7sUmP3TitxaYOhYSKsn6RKVgipuvBxRZrCuairzIZFyyHJUG5VpZZfOKsx71TxEXfn8UJuO1D6uJqO3XkGbI50t_GVrQrYqWlldPIxnmo1uz4lw61iRDCzzDnp7rnTfCxsZMbnkvfKsfx9y6tOKAaptq9GpsSlEdsliZttg2OuKt8k40hdQ3g-4ZziQWWFwzwpUNAbK6IENhzfiDKBJYlc8km-D_GJsM5QQjdPxRk8z8")' }}
 
                   ></div>
-                  <h1 className="text-[#0d141c] text-base font-medium leading-normal">AgriTech Solutions</h1>
+                  <a href="/" className="text-[#0d141c] text-base font-medium leading-normal">AgriTech Solutions</a>
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#e7edf4]">

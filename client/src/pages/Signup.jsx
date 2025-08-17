@@ -1,6 +1,7 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 const Signup = () => {
+    const navigate = useNavigate();
   return (
     <div
       className="relative flex size-full min-h-screen flex-col bg-slate-50 overflow-x-hidden"
@@ -66,7 +67,8 @@ const Signup = () => {
             )}
 
             <div className="flex px-2 sm:px-4 py-3">
-              <button className="flex h-10 flex-1 items-center justify-center rounded-lg bg-[#0d80f2] px-3 sm:px-4 text-sm font-bold text-white">
+              <button
+               onClick={() => navigate("/dashboard")} className="flex h-10 flex-1 items-center justify-center rounded-lg bg-[#0d80f2] px-3 sm:px-4 text-sm font-bold text-white">
                 Sign up
               </button>
             </div>
