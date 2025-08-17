@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import Picturelogo from "../assets/images/Picturelogo.png";
 import BgImage from "../assets/images/WPS Photo Edit2.png";
+import bg from "../assets/images/bg.png";
 import Dot from "../assets/images/dot.png";
 import Dot2 from "../assets/images/dot2.png";
 import Dot3 from "../assets/images/dot3.png";
@@ -88,7 +89,7 @@ const Home = () => {
    
     <section
       className="pt-20 bg-cover bg-center w-full"
-   style={{ backgroundImage: `url(${BgImage})` }}
+    style={{ backgroundImage: `url(${bg})` }}
     >
       <div
         className="container mx-auto px-4 md:px-8 py-20 text-white"
