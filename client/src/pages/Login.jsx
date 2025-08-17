@@ -2,21 +2,16 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const navigate = useNavigate();
-      const handleLogin = () => {
-    
+  const navigate = useNavigate();
+  const handleLogin = () => {
     navigate("/dashboard");
   };
+
   return (
-    <div
-      className="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden"
-      style={{
-        '--checkbox-tick-svg':
-          "url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(248,250,252)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e')",
-        fontFamily: 'Inter, "Noto Sans", sans-serif'
-      }}
-    >
-      <div className="layout-container flex h-full grow flex-col">
+    <div className="relative flex flex-col min-h-screen bg-slate-50 overflow-x-hidden">
+      <div className="flex flex-col flex-1">
+        
+        {/* Header */}
         <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf4] px-10 py-3">
           <div className="flex items-center gap-4 text-[#0d141c]">
             <div className="size-4">
@@ -34,18 +29,21 @@ const Login = () => {
               <a className="text-[#0d141c] text-sm font-medium leading-normal" href="#">Company</a>
             </div>
             <div className="flex gap-2">
-              <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#0d80f2] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]">
+              <button className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#0d80f2] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]">
                 <span className="truncate">Get Started</span>
               </button>
-              <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-bold leading-normal tracking-[0.015em]">
+              <button className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-bold leading-normal tracking-[0.015em]">
                 <span className="truncate">Log In</span>
               </button>
             </div>
           </div>
         </header>
 
-        <div className="px-40 flex flex-1 justify-center py-5">
-          <div className="layout-content-container flex flex-col w-[512px]  py-5 max-w-[960px] flex-1">
+        {/* Login Form Center */}
+        <div className="flex flex-1 items-center justify-center py-5">
+          <div className="flex flex-col w-full max-w-[512px] py-5">
+
+            {/* Image */}
             <div className="@container">
               <div className="@[480px]:px-4 @[480px]:py-3">
                 <div
@@ -58,11 +56,13 @@ const Login = () => {
               </div>
             </div>
 
+            {/* Title */}
             <h2 className="text-[#0d141c] tracking-light text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5">
               Log in to your account
             </h2>
 
-            <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+            {/* Username */}
+            <div className="flex w-full flex-wrap items-end gap-4 px-4 py-3">
               <label className="flex flex-col min-w-40 flex-1">
                 <input
                   placeholder="Username"
@@ -71,15 +71,18 @@ const Login = () => {
               </label>
             </div>
 
-            <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+            {/* Password */}
+            <div className="flex w-full flex-wrap items-end gap-4 px-4 py-3">
               <label className="flex flex-col min-w-40 flex-1">
                 <input
                   placeholder="Password"
+                  type="password"
                   className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141c] focus:outline-0 focus:ring-0 border-none bg-[#e7edf4] h-14 placeholder:text-[#49739c] p-4 text-base"
                 />
               </label>
             </div>
 
+            {/* Remember me */}
             <div className="flex items-center gap-4 bg-slate-50 px-4 min-h-14 justify-between">
               <p className="text-[#0d141c] text-base font-normal flex-1 truncate">Remember me</p>
               <div className="shrink-0">
@@ -92,15 +95,17 @@ const Login = () => {
               </div>
             </div>
 
+            {/* Button */}
             <div className="flex px-4 py-3">
               <button
-               onClick={handleLogin}
+                onClick={handleLogin}
                 className="flex h-10 flex-1 items-center justify-center rounded-lg bg-blue-600 hover:bg-blue-700
 px-4 text-sm font-bold text-slate-50">
                 Log In
               </button>
             </div>
 
+            {/* Forgot Password */}
             <p className="text-[#49739c] text-sm text-center underline px-4 pt-1 pb-3">
               Forgot Password?
             </p>
