@@ -15,7 +15,8 @@ const RealTimeMonitor = () => {
   const [location, setLocation] = useState(center);
 
   // Google Maps API loader
-  const { isLoaded } = useJsApiLoader({ googleMapsApiKey: "YOUR_GOOGLE_MAPS_API_KEY" });
+  const { isLoaded } = useJsApiLoader({ googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY });
+
 
   // Simulate live data updates
   useEffect(() => {

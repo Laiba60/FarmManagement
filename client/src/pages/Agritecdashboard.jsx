@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RealTimeMonitor from "../components/RealTimeMonitor";
+import MissionPlanMap from "../components/missionplanmap";
+
 
 
 import { Link } from "react-router-dom";
@@ -360,8 +362,10 @@ const Agritecdashboard = () => {
               features={[
                 {
                   title: "Plan Your Next Mission",
-                  desc: "Easily plan your next spraying mission with our intuitive mission planning tool.",
-                  img: "https://lh3.googleusercontent.com/aida-public/AB6AXuClOBnLC3IgzPFeh0_qGG37gnOAMzauYEEEXh9ijdhhvSsByLcmH5g87ISsrH4Y46eryaUFyfJ2fDspV7cUi7itAPpyUOibYPwGFEQKN_yZK_2WBh-3I0bEC-APR0WXhO0iZ4g9K0DLhPs9DH7te8iQr9tuCFXNRxGKHKBPVRkPmts4pV7GXTA3k2OwGBN_KD19CYEIFBA55TLvIJPjx88kYYHM3AoyhD9Oto5ukG4h3pi1wN1W0tz4UAc3ZD6EWprLQiJX_0QzuDQM",
+      desc: "Easily plan your next spraying mission with our interactive map and route planner.",
+      img: null, // remove static image
+      component: <MissionPlanMap />
+,
                 },
               ]}
             />
