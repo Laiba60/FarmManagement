@@ -62,7 +62,7 @@ const Agritecdashboard = () => {
                 ></div>
                 <a
                   href="/"
-                  className="text-[#0d141c] text-base font-medium leading-normal"
+                  className="text-[#0d141c] text-[17px] font-bold leading-normal"
                 >
                   AgriTech Solutions
                 </a>
@@ -71,21 +71,22 @@ const Agritecdashboard = () => {
               {/* Menu */}
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#e7edf4]">
-                  <p className="text-sm font-medium">Dashboard</p>
+                 <p className="text-[17px] font-bold">Dashboard</p>
+
                 </div>
                 <div className="flex items-center gap-3 px-3 py-2">
-                  <p className="text-sm font-medium">Missions</p>
+                  <p className="text-[17px] font-bold">Missions</p>
                 </div>
                 <div className="flex items-center gap-3 px-3 py-2">
-                  <p className="text-sm font-medium">Robots</p>
+                  <p className="text-[17px] font-bold">Robots</p>
                 </div>
                 <div className="flex items-center gap-3 px-3 py-2">
-                  <p className="text-sm font-medium">
+                  <p className="text-[17px] font-bold">
                     <Link to="/supportchat">Support</Link>
                   </p>
                 </div>
                 <div className="flex items-center gap-3 px-3 py-2">
-                  <p className="text-sm font-medium">Account</p>
+                  <p className="text-[17px] font-bold">Account</p>
                 </div>
               </div>
             </div>
@@ -100,7 +101,10 @@ const Agritecdashboard = () => {
               <p className="text-[28px] lg:text-[32px] font-bold leading-tight">
                 Dashboard
               </p>
-              <p className="text-[#49739c] text-sm">Welcome back, Farmer McGregor</p>
+              <p className="text-gray-600 text-[15px] md:text-base font-medium">
+  Welcome back, Farmer McGregor
+</p>
+
             </div>
           </div>
 
@@ -128,7 +132,170 @@ const Agritecdashboard = () => {
             <div className="px-4">
   <RealTimeMonitor />
 </div>
-
+ <h2 className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Rental Prices</h2>
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(228px,1fr))] gap-2.5 px-4 py-3 @3xl:grid-cols-4">
+              <div className="flex flex-1 flex-col gap-4 rounded-lg border border-solid border-[#dbe0e6] bg-white p-6">
+                <div className="flex flex-col gap-1">
+                  <h1 className="text-[#111418] text-base font-bold leading-tight">1 Month</h1>
+                  <p className="flex items-baseline gap-1 text-[#111418]">
+                    <span className="text-[#111418] text-4xl font-black leading-tight tracking-[-0.033em]">$500</span>
+                    <span className="text-[#111418] text-base font-bold leading-tight">/month</span>
+                  </p>
+                </div>
+                <button
+                  className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em]"
+                >
+                  <span className="truncate">Rent Now</span>
+                </button>
+                <div className="flex flex-col gap-2">
+                  <div className="text-[13px] font-normal leading-normal flex gap-3 text-[#111418]">
+                    <div className="text-[#111418]" data-icon="Check" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path>
+                      </svg>
+                    </div>
+                    Precision Spraying
+                  </div>
+                  <div className="text-[13px] font-normal leading-normal flex gap-3 text-[#111418]">
+                    <div className="text-[#111418]" data-icon="Check" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path>
+                      </svg>
+                    </div>
+                    GPS Navigation
+                  </div>
+                  <div className="text-[13px] font-normal leading-normal flex gap-3 text-[#111418]">
+                    <div className="text-[#111418]" data-icon="Check" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path>
+                      </svg>
+                    </div>
+                    24/7 Operation
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-1 flex-col gap-4 rounded-lg border border-solid border-[#dbe0e6] bg-white p-6">
+                <div className="flex flex-col gap-1">
+                  <h1 className="text-[#111418] text-base font-bold leading-tight">3 Months</h1>
+                  <p className="flex items-baseline gap-1 text-[#111418]">
+                    <span className="text-[#111418] text-4xl font-black leading-tight tracking-[-0.033em]">$1350</span>
+                    <span className="text-[#111418] text-base font-bold leading-tight">/month</span>
+                  </p>
+                </div>
+                <button
+                  className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em]"
+                >
+                  <span className="truncate">Rent Now</span>
+                </button>
+                <div className="flex flex-col gap-2">
+                  <div className="text-[13px] font-normal leading-normal flex gap-3 text-[#111418]">
+                    <div className="text-[#111418]" data-icon="Check" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path>
+                      </svg>
+                    </div>
+                    Precision Spraying
+                  </div>
+                  <div className="text-[13px] font-normal leading-normal flex gap-3 text-[#111418]">
+                    <div className="text-[#111418]" data-icon="Check" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path>
+                      </svg>
+                    </div>
+                    GPS Navigation
+                  </div>
+                  <div className="text-[13px] font-normal leading-normal flex gap-3 text-[#111418]">
+                    <div className="text-[#111418]" data-icon="Check" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path>
+                      </svg>
+                    </div>
+                    24/7 Operation
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-1 flex-col gap-4 rounded-lg border border-solid border-[#dbe0e6] bg-white p-6">
+                <div className="flex flex-col gap-1">
+                  <h1 className="text-[#111418] text-base font-bold leading-tight">6 Months</h1>
+                  <p className="flex items-baseline gap-1 text-[#111418]">
+                    <span className="text-[#111418] text-4xl font-black leading-tight tracking-[-0.033em]">$2400</span>
+                    <span className="text-[#111418] text-base font-bold leading-tight">/month</span>
+                  </p>
+                </div>
+                <button
+                  className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em]"
+                >
+                  <span className="truncate">Rent Now</span>
+                </button>
+                <div className="flex flex-col gap-2">
+                  <div className="text-[13px] font-normal leading-normal flex gap-3 text-[#111418]">
+                    <div className="text-[#111418]" data-icon="Check" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path>
+                      </svg>
+                    </div>
+                    Precision Spraying
+                  </div>
+                  <div className="text-[13px] font-normal leading-normal flex gap-3 text-[#111418]">
+                    <div className="text-[#111418]" data-icon="Check" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path>
+                      </svg>
+                    </div>
+                    GPS Navigation
+                  </div>
+                  <div className="text-[13px] font-normal leading-normal flex gap-3 text-[#111418]">
+                    <div className="text-[#111418]" data-icon="Check" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path>
+                      </svg>
+                    </div>
+                    24/7 Operation
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-1 flex-col gap-4 rounded-lg border border-solid border-[#dbe0e6] bg-white p-6">
+                <div className="flex flex-col gap-1">
+                  <h1 className="text-[#111418] text-base font-bold leading-tight">12 Months</h1>
+                  <p className="flex items-baseline gap-1 text-[#111418]">
+                    <span className="text-[#111418] text-4xl font-black leading-tight tracking-[-0.033em]">$4200</span>
+                    <span className="text-[#111418] text-base font-bold leading-tight">/month</span>
+                  </p>
+                </div>
+                <button
+                  className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em]"
+                >
+                  <span className="truncate">Rent Now</span>
+                </button>
+                <div className="flex flex-col gap-2">
+                  <div className="text-[13px] font-normal leading-normal flex gap-3 text-[#111418]">
+                    <div className="text-[#111418]" data-icon="Check" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path>
+                      </svg>
+                    </div>
+                    Precision Spraying
+                  </div>
+                  <div className="text-[13px] font-normal leading-normal flex gap-3 text-[#111418]">
+                    <div className="text-[#111418]" data-icon="Check" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path>
+                      </svg>
+                    </div>
+                    GPS Navigation
+                  </div>
+                  <div className="text-[13px] font-normal leading-normal flex gap-3 text-[#111418]">
+                    <div className="text-[#111418]" data-icon="Check" data-size="20px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path>
+                      </svg>
+                    </div>
+                    24/7 Operation
+                  </div>
+                </div>
+              </div>
+            </div>
+           
             {/* Precision Details */}
             <div className="px-4">
       <h2 className="text-[22px] font-bold pb-3">Precision Spraying Details</h2>
@@ -216,9 +383,9 @@ const Section = ({ title, features }) => (
           className="flex flex-col lg:flex-row gap-4 rounded-lg"
         >
           <div className="flex flex-col flex-1 gap-1">
-            {f.subtitle && <p className="text-sm text-[#49739c]">{f.subtitle}</p>}
-            <p className="text-base font-bold">{f.title}</p>
-            <p className="text-sm text-[#49739c]">{f.desc}</p>
+            {f.subtitle && <p className="text-gray-600 text-[15px] md:text-base font-medium">{f.subtitle}</p>}
+            <p className="text-gray-600 text-[15px] md:text-base font-medium">{f.title}</p>
+            <p className="text-gray-600 text-[15px] md:text-base font-medium">{f.desc}</p>
           </div>
           <div
             className="w-full lg:w-1/2 bg-center bg-cover rounded-lg aspect-video"

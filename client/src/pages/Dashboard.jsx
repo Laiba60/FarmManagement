@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+
 const Dashboard = () => {
+   const [robots, setRobots] = useState([
+    { id: 1, name: "Robot A", price: 5000 },
+    { id: 2, name: "Robot B", price: 4500 },
+  ]);
+  const [engineers, setEngineers] = useState([
+    { id: 1, name: "Ali Khan" },
+    { id: 2, name: "Sara Ahmed" },
+  ]);
+  const [farmers, setFarmers] = useState([
+    { id: 1, name: "Farmer A" },
+    { id: 2, name: "Farmer B" },
+  ]);
+
+  // Handlers
+  const removeRobot = (id) => setRobots(robots.filter(r => r.id !== id));
+  const removeEngineer = (id) => setEngineers(engineers.filter(e => e.id !== id));
+  const removeFarmer = (id) => setFarmers(farmers.filter(f => f.id !== id));
+  const updateRobotPrice = (id, newPrice) => {
+    setRobots(robots.map(r => r.id === id ? { ...r, price: newPrice } : r));
+  }
   return (
     <div
       className="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden"
@@ -54,27 +75,74 @@ const Dashboard = () => {
           {/* Overview Section */}
           <h2 className="text-[#0d141c] text-lg md:text-2xl font-bold px-4 pb-3 pt-5">Overview</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
-            <div className="flex flex-col gap-2 rounded-lg p-6 border border-[#cedbe8]">
-              <p className="text-base font-medium">Available Robots</p>
-              <p className="text-2xl font-bold">12</p>
-              <p className="text-[#078838] text-sm font-medium">+10%</p>
+      
+      {/* Robots Card */}
+      <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow">
+        <p className="text-base font-medium">Robots</p>
+        <p className="text-2xl font-bold">{robots.length}</p>
+        <div className="space-y-2 mt-2">
+          {robots.map(robot => (
+            <div key={robot.id} className="flex justify-between items-center">
+              <p className="text-sm">{robot.name}</p>
+              <input
+                type="number"
+                value={robot.price}
+                onChange={(e) => updateRobotPrice(robot.id, parseInt(e.target.value))}
+                className="w-20 border rounded px-2 py-1 text-sm"
+              />
+              <button
+                onClick={() => removeRobot(robot.id)}
+                className="bg-red-500 text-white px-2 py-1 rounded text-xs"
+              >Remove</button>
             </div>
-            <div className="flex flex-col gap-2 rounded-lg p-6 border border-[#cedbe8]">
-              <p className="text-base font-medium">Engineers</p>
-              <p className="text-2xl font-bold">5</p>
-              <p className="text-[#078838] text-sm font-medium">+5%</p>
+          ))}
+        </div>
+        <button className="mt-2 bg-green-500 text-white px-3 py-1 rounded text-sm">Add Robot</button>
+      </div>
+
+      {/* Engineers Card */}
+      <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow">
+        <p className="text-base font-medium">Engineers</p>
+        <p className="text-2xl font-bold">{engineers.length}</p>
+        <div className="space-y-2 mt-2">
+          {engineers.map(eng => (
+            <div key={eng.id} className="flex justify-between items-center">
+              <p className="text-sm">{eng.name}</p>
+              <button
+                onClick={() => removeEngineer(eng.id)}
+                className="bg-red-500 text-white px-2 py-1 rounded text-xs"
+              >Remove</button>
             </div>
-            <div className="flex flex-col gap-2 rounded-lg p-6 border border-[#cedbe8]">
-              <p className="text-base font-medium">Due Dates</p>
-              <p className="text-2xl font-bold">3</p>
-              <p className="text-[#e73908] text-sm font-medium">-2%</p>
+          ))}
+        </div>
+        <button className="mt-2 bg-green-500 text-white px-3 py-1 rounded text-sm">Add Engineer</button>
+      </div>
+
+      {/* Farmers Card */}
+      <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow">
+        <p className="text-base font-medium">Farmers</p>
+        <p className="text-2xl font-bold">{farmers.length}</p>
+        <div className="space-y-2 mt-2">
+          {farmers.map(farmer => (
+            <div key={farmer.id} className="flex justify-between items-center">
+              <p className="text-sm">{farmer.name}</p>
+              <button
+                onClick={() => removeFarmer(farmer.id)}
+                className="bg-red-500 text-white px-2 py-1 rounded text-xs"
+              >Remove</button>
             </div>
-            <div className="flex flex-col gap-2 rounded-lg p-6 border border-[#cedbe8]">
-              <p className="text-base font-medium">Earnings</p>
-              <p className="text-2xl font-bold">$15,000</p>
-              <p className="text-[#078838] text-sm font-medium">+15%</p>
-            </div>
-          </div>
+          ))}
+        </div>
+        <button className="mt-2 bg-green-500 text-white px-3 py-1 rounded text-sm">Add Farmer</button>
+      </div>
+
+      {/* Earnings / Other Card */}
+      <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow">
+        <p className="text-base font-medium">Earnings</p>
+        <p className="text-2xl font-bold">$15,000</p>
+        <p className="text-[#078838] text-sm font-medium">+15%</p>
+      </div>
+    </div>
 
           {/* Robot Health Section */}
           <h2 className="text-[#0d141c] text-lg md:text-2xl font-bold px-4 pb-3 pt-5">Robot Health</h2>
