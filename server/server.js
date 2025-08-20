@@ -20,6 +20,12 @@ app.use('/api/auth', authRoutes);
 
 const dashboardRoutes = require('./routes/dashboard');
 app.use('/api/dashboard', dashboardRoutes);
+// Chatbot Routes
+const chatbotRoutes = require('./routes/chatbot');
+app.use('/api/chatbot', chatbotRoutes);
+
+const engineersRoutes = require('./routes/engineers');
+app.use('/api/engineers', engineersRoutes);
 
 // Test Routes
 app.get('/', (req, res) => {
