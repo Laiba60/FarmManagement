@@ -383,8 +383,8 @@ const Section = ({ title, features }) => (
           className="flex flex-col lg:flex-row gap-4 rounded-lg"
         >
           <div className="flex flex-col flex-1 gap-1">
-            {f.subtitle && <p className="text-gray-600 text-[15px] md:text-base font-medium">{f.subtitle}</p>}
-            <p className="text-gray-600 text-[15px] md:text-base font-medium">{f.title}</p>
+            {f.subtitle && <p className="text-black text-[15px] md:text-base font-bold">{f.subtitle}</p>}
+            <p className="text-black text-[15px] md:text-base font-bold">{f.title}</p>
             <p className="text-gray-600 text-[15px] md:text-base font-medium">{f.desc}</p>
           </div>
           <div
