@@ -1,7 +1,46 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import RealTimeMonitor from "../components/RealTimeMonitor";
 
+
+import { Link } from "react-router-dom";
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 const Agritecdashboard = () => {
+ 
+  const [engineers, setEngineers] = useState([]);
+  const [battery, setBattery] = useState(72); 
+  const [chemical, setChemical] = useState(65); 
+  const data = [
+    { name: "Remaining Spray", value: 65 },
+    { name: "Robot Battery Status", value: 80 },
+    { name: "Previous Work", value: 20 },
+     { name: "Remaining Chemical", value: 80 },
+  ];
+  useEffect(() => {
+    
+    setEngineers([
+      { name: "Ali Khan", expertise: "Drone Navigation", status: "Available" },
+      { name: "Sara Ahmed", expertise: "Chemical Spraying", status: "Available" },
+      { name: "John Doe", expertise: "Robotics Engineer", status: "Busy" },
+      { name: "John Doe", expertise: "Robotics Engineer", status: "Busy" },
+      { name: "John Doe", expertise: "Robotics Engineer", status: "Busy" },
+      { name: "John Doe", expertise: "Robotics Engineer", status: "Busy" },
+      { name: "John Doe", expertise: "Robotics Engineer", status: "Busy" },
+    
+         { name: "John Doe", expertise: "Robotics Engineer", status: "Busy" },
+      { name: "John Doe", expertise: "Robotics Engineer", status: "Busy" },
+      { name: "John Doe", expertise: "Robotics Engineer", status: "Busy" },
+                      
+    ]);
+  }, []);
+
   return (
     <div
       className="relative flex min-h-screen flex-col bg-slate-50 overflow-x-hidden"
@@ -31,74 +70,21 @@ const Agritecdashboard = () => {
 
               {/* Menu */}
               <div className="flex flex-col gap-2">
-                {/* Active item */}
                 <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#e7edf4]">
-                  <div className="text-[#0d141c]">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24px"
-                      height="24px"
-                      fill="currentColor"
-                      viewBox="0 0 256 256"
-                    >
-                      <path d="M224,115.55V208a16,16,0,0,1-16,16H168a16,16,0,0,1-16-16V168a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v40a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V115.55a16,16,0,0,1,5.17-11.78l80-75.48.11-.11a16,16,0,0,1,21.53,0l80,75.59A16,16,0,0,1,224,115.55Z"></path>
-                    </svg>
-                  </div>
                   <p className="text-sm font-medium">Dashboard</p>
                 </div>
-
-                {/* Other menu items */}
                 <div className="flex items-center gap-3 px-3 py-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24px"
-                    height="24px"
-                    fill="currentColor"
-                    viewBox="0 0 256 256"
-                  >
-                    <path d="M228.92,49.69a8,8,0,0,0-6.86-1.45L160.93,63.52,99.58,32.84a8,8,0,0,0-5.52-.6l-64,16A8,8,0,0,0,24,56V200a8,8,0,0,0,9.94,7.76l61.13-15.28,61.35,30.68A8.15,8.15,0,0,0,160,224l64-16a8,8,0,0,0,8-8V56A8,8,0,0,0,228.92,49.69Z"></path>
-                  </svg>
                   <p className="text-sm font-medium">Missions</p>
                 </div>
-
                 <div className="flex items-center gap-3 px-3 py-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24px"
-                    height="24px"
-                    fill="currentColor"
-                    viewBox="0 0 256 256"
-                  >
-                    <path d="M200,48H136V16a8,8,0,0,0-16,0V48H56A32,32,0,0,0,24,80V192a32,32,0,0,0,32,32H200a32,32,0,0,0,32-32V80A32,32,0,0,0,200,48Z"></path>
-                  </svg>
                   <p className="text-sm font-medium">Robots</p>
                 </div>
-
                 <div className="flex items-center gap-3 px-3 py-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24px"
-                    height="24px"
-                    fill="currentColor"
-                    viewBox="0 0 256 256"
-                  >
-                    <path d="M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path>
-                  </svg>
                   <p className="text-sm font-medium">
                     <Link to="/supportchat">Support</Link>
                   </p>
                 </div>
-
                 <div className="flex items-center gap-3 px-3 py-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24px"
-                    height="24px"
-                    fill="currentColor"
-                    viewBox="0 0 256 256"
-                  >
-                    <path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8Z"></path>
-                  </svg>
                   <p className="text-sm font-medium">Account</p>
                 </div>
               </div>
@@ -136,41 +122,70 @@ const Agritecdashboard = () => {
                   desc: "Equipped with GPS-guided navigation, our robots autonomously navigate fields with accuracy.",
                   img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAy-eqUAHpr4qWimtoaVpMk0mfL1KWxLL0vRiNHsISAzTe2NTgrGS4fSvwS03RL9EkFtmUWny0mOllKZZZ-dt-00zp4D-nr3PkDjdlP8JoCLcOYl33JtMzs6YmRFIAysnOlq_vf3WnocVUkTSAsVGp5MrQuctM2EZTnU0nlC5Pa1dhTlxiaw1e-xlW52s9B_bq617RZ4iaB5Jxy8N90wbF6PryNZ5cmnTH5g-bmzzukxyn6i1FwZFVmZJrmJeY1V4DLR3RgSHR_Hy1p",
                 },
-                {
-                  subtitle: "Real-Time Monitoring",
-                  title: "Live Data Insights",
-                  desc: "Monitor your robot's progress in real-time with live data insights including battery status.",
-                  img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD6RitLCWcXX7jYNXcer_bDvodY-x5sQzEFqbMmWn0d4hs_OhmL19_93KdGSiMKYwGMpVHDozi8XKxq0MdliEOwQzMVXb-11sWVFWPRzF79Dco7so3My84G8N6MMHB7LvbZydKNfXhmuZoN3NxMC6uV8jY-a8a3333zvYsIIEtrz09PtluMRA4a1U0_x4UE8nR6aSkdNIMyXycvs6uUO_wgbRtoQzdGDfGQ2Z7HFW-aDlsspXWFe3SkQEflKlguFf5vH9CHTkjImXA-",
-                },
+              
               ]}
             />
-
-            {/* Rental Prices */}
-            <Section
-              title="Rental Prices"
-              features={[
-                {
-                  title: "Flexible Rental Options",
-                  desc: "Choose from hourly, daily, or weekly rental plans with transparent pricing.",
-                  img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBQMk0sPLO3IFtWLXgF3Fkh9M3Ewl8dcA_SA-XtQmtioP5fWEfD6fl-MTHwASuhLhlqouuj5WAmLb7o9SwySFiTZdJdqjHaDimaPjvpbzo5dmHFfPPXg5rV6WjliluFbde6c6Exq5O3uiHVBTxgrKMLxWMBdelMyDbLB-sU99NQ0ruOwXdUrwHHprK15ZnGOE6H77crwAXztQDhOIeuyFQei4w1J8sHs0EB5h4I9e3KeEu6-hu6n0EmzC-nzzhlWUeSGjCZq9V3O_83",
-                },
-              ]}
-            />
+            <div className="px-4">
+  <RealTimeMonitor />
+</div>
 
             {/* Precision Details */}
             <div className="px-4">
-              <h2 className="text-[22px] font-bold pb-3">Precision Spraying Details</h2>
-              <div className="flex flex-wrap gap-4">
-                <div className="flex-1 min-w-[150px] p-6 border rounded-lg">
-                  <p className="font-medium">Remaining Spray</p>
-                  <p className="text-2xl font-bold">85%</p>
-                </div>
-                <div className="flex-1 min-w-[150px] p-6 border rounded-lg">
-                  <p className="font-medium">Previous Work</p>
-                  <p className="text-2xl font-bold">20 acres</p>
-                </div>
-              </div>
-            </div>
+      <h2 className="text-[22px] font-bold pb-3">Precision Spraying Details</h2>
+
+      <div className="p-4 border rounded-lg bg-white shadow-md">
+        <ResponsiveContainer width="100%" height={250}>
+          <AreaChart
+            data={data}
+            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+          >
+            <defs>
+              <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#4f46e5" stopOpacity={0.8}/>
+                <stop offset="95%" stopColor="#4f46e5" stopOpacity={0}/>
+              </linearGradient>
+            </defs>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Area
+              type="monotone"
+              dataKey="value"
+              stroke="#4f46e5"
+              fillOpacity={1}
+              fill="url(#colorValue)"
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
+
+            {/* Engineers List */}
+         <div className="px-4">
+  <h2 className="text-[22px] font-bold pb-3">Available Farm Engineers</h2>
+  
+  <div className="max-h-[400px] overflow-y-auto pr-2">
+    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {engineers.map((eng, idx) => (
+        <div key={idx} className="p-4 border rounded-lg shadow-sm bg-white">
+          <p className="font-bold">{eng.name}</p>
+          <p className="text-sm text-gray-600">{eng.expertise}</p>
+          <span
+            className={`text-xs font-medium px-2 py-1 rounded ${
+              eng.status === "Available"
+                ? "bg-green-100 text-green-700"
+                : "bg-red-100 text-red-700"
+            }`}
+          >
+            {eng.status}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
 
             {/* Mission Planning */}
             <Section
