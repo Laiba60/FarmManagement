@@ -131,7 +131,7 @@ const Dashboard = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
       
       {/* Robots Card */}
-      <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow">
+      <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow  h-[300px] overflow-y-auto">
   <p className="text-base font-medium">Robots</p>
   <p className="text-2xl font-bold">{engineers.length}</p>
 
@@ -159,6 +159,9 @@ const Dashboard = () => {
             <Trash2 size={18} />
           </button>
         </div>
+
+
+        
       </div>
     ))}
   </div>
@@ -169,7 +172,7 @@ const Dashboard = () => {
       {/* Engineers Card */}
   
 
-<div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow">
+<div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow h-[300px] overflow-y-auto">
   <p className="text-base font-medium">Engineers</p>
   <p className="text-2xl font-bold">{engineers.length}</p>
 
@@ -182,31 +185,47 @@ const Dashboard = () => {
         {/* Engineer Name */}
         <p className="text-sm font-medium">{engineer.name}</p>
 
-        {/* Icons */}
+        {/* Icons with independent tooltips */}
         <div className="flex gap-2">
-          <button
-            onClick={() => addTaskToEngineer(engineer.id)}
-            className="text-green-600 hover:text-green-800"
-          >
-            <Plus size={18} />
-          </button>
-          <button
-            onClick={() => removeEngineer(engineer.id)}
-            className="text-red-600 hover:text-red-800"
-          >
-            <Trash2 size={18} />
-          </button>
+          {/* Add Task Button */}
+          <div className="relative group">
+            <button
+              onClick={() => addTaskToEngineer(engineer.id)}
+              className="text-green-600 hover:text-green-800"
+            >
+              <Plus size={18} />
+            </button>
+            <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 
+                  px-2 py-1 text-xs text-white bg-green-600 rounded opacity-0 
+                  group-hover:opacity-100 transition">
+            increase
+            </span>
+          </div>
+
+          {/* Remove Engineer Button */}
+          <div className="relative group">
+            <button
+              onClick={() => removeEngineer(engineer.id)}
+              className="text-red-600 hover:text-red-800"
+            >
+              <Trash2 size={18} />
+            </button>
+            <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 
+                  px-2 py-1 text-xs text-white bg-red-600 rounded opacity-0 
+                  group-hover:opacity-100 transition">
+              Decrease
+            </span>
+          </div>
         </div>
       </div>
     ))}
   </div>
-
- 
 </div>
 
 
+
       {/* Farmers Card */}
-   <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow">
+   <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow  h-[300px] overflow-y-auto">
   <p className="text-base font-medium">Farmers</p>
   <p className="text-2xl font-bold">{farmers.length}</p>
 
@@ -220,21 +239,38 @@ const Dashboard = () => {
         <p className="text-sm font-medium">{farmer.name}</p>
 
         {/* Icons */}
-        <div className="flex gap-2">
-          <button
-            onClick={() => addFarmer(farmer.id)}   // yeh function aap bana sakti hain
-            className="text-green-600 hover:text-green-800"
-          >
-            <Plus size={18} />
-          </button>
-          <button
-            onClick={() => removeFarmer(farmer.id)}
-            className="text-red-600 hover:text-red-800"
-          >
-            <Trash2 size={18} />
-            
-          </button>
-        </div>
+       <div className="flex gap-2">
+  {/* Increase */}
+  <div className="relative group">
+    <button
+      onClick={() => addFarmer(farmer.id)}
+      className="text-green-600 hover:text-green-800"
+    >
+      <Plus size={18} />
+    </button>
+    <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 
+          px-2 py-1 text-xs text-white bg-green-600 rounded opacity-0 
+          group-hover:opacity-100 transition">
+      Increase
+    </span>
+  </div>
+
+  {/* Decrease */}
+  <div className="relative group">
+    <button
+      onClick={() => removeFarmer(farmer.id)}
+      className="text-red-600 hover:text-red-800"
+    >
+      <Trash2 size={18} />
+    </button>
+    <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 
+          px-2 py-1 text-xs text-white bg-red-600 rounded opacity-0 
+          group-hover:opacity-100 transition">
+      Decrease
+    </span>
+  </div>
+</div>
+
       </div>
     ))}
   </div>
@@ -244,7 +280,7 @@ const Dashboard = () => {
       {/* Earnings / Other Card */}
    
   
-    <div className="flex flex-col gap-4 rounded-lg p-4 border border-[#cedbe8] bg-white shadow">
+    <div className="flex flex-col gap-4 rounded-lg p-4 border border-[#cedbe8] bg-white shadow  h-[300px] overflow-y-auto overflow-x-hidden w-full">
       <p className="text-base font-medium">Rental Prices</p>
 
       {robots.map((robot) => (
