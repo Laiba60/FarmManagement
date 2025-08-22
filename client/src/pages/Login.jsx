@@ -30,8 +30,8 @@ const Login = () => {
         </header>
 
         {/* Login Form Center */}
-        <div className="flex flex-1 items-center justify-center py-5 px-3 sm:px-6">
-          <div className="flex flex-col w-full max-w-[512px] py-5">
+        <div className="flex flex-1 items-center justify-center  px-3 sm:px-6">
+          <div className="flex flex-col w-full max-w-[512px] ">
 
             {/* Image */}
             <div className="@container">

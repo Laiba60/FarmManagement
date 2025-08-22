@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/Picturelogo.png";
-
+import { Plus, Trash2,Minus } from "lucide-react";
 const Dashboard = () => {
-   const [robots, setRobots] = useState([
-    { id: 1, name: "Robot A", price: 5000 },
-    { id: 2, name: "Robot B", price: 4500 },
-  ]);
+  
   const [engineers, setEngineers] = useState([
     { id: 1, name: "Ali Khan" },
     { id: 2, name: "Sara Ahmed" },
+     { id: 2, name: " Ahmed" },
+      { id: 2, name: "Ali nAhmed" },
+       { id: 2, name: "Sania Ahmed" },
+        { id: 2, name: "irsa Ahmed" },
+        
   ]);
   const [farmers, setFarmers] = useState([
     { id: 1, name: "Farmer A" },
@@ -19,10 +21,50 @@ const Dashboard = () => {
   // Handlers
   const removeRobot = (id) => setRobots(robots.filter(r => r.id !== id));
   const removeEngineer = (id) => setEngineers(engineers.filter(e => e.id !== id));
-  const removeFarmer = (id) => setFarmers(farmers.filter(f => f.id !== id));
+  
   const updateRobotPrice = (id, newPrice) => {
     setRobots(robots.map(r => r.id === id ? { ...r, price: newPrice } : r));
   }
+  
+
+  // Add Farmer
+  const addFarmer = () => {
+    const newFarmer = {
+      id: Date.now(),
+      name: `Farmer ${farmers.length + 1}`,
+    };
+    setFarmers([...farmers, newFarmer]);
+  };
+
+  // Remove Farmer
+  const removeFarmer = (id) => {
+    setFarmers(farmers.filter((farmer) => farmer.id !== id));
+  };
+   const [price, setPrice] = useState(15000);
+
+  const increasePrice = () => setPrice(price + 1000);
+  const decreasePrice = () => setPrice(price - 1000);
+   const [robots, setRobots] = useState([
+    { id: 1, name: "Robot A", price: 15000 },
+    { id: 2, name: "Robot B", price: 12000 },
+    { id: 3, name: "Robot C", price: 18000 },
+  ]);
+
+  const increasePrices = (id) => {
+    setRobots(
+      robots.map((robot) =>
+        robot.id === id ? { ...robot, price: robot.price + 1000 } : robot
+      )
+    );
+  };
+
+  const decreasePrices = (id) => {
+    setRobots(
+      robots.map((robot) =>
+        robot.id === id ? { ...robot, price: robot.price - 1000 } : robot
+      )
+    );
+  };
   return (
     <div
       className="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden"
@@ -90,70 +132,174 @@ const Dashboard = () => {
       
       {/* Robots Card */}
       <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow">
-        <p className="text-base font-medium">Robots</p>
-        <p className="text-2xl font-bold">{robots.length}</p>
-        <div className="space-y-2 mt-2">
-          {robots.map(robot => (
-            <div key={robot.id} className="flex justify-between items-center">
-              <p className="text-sm">{robot.name}</p>
-              <input
-                type="number"
-                value={robot.price}
-                onChange={(e) => updateRobotPrice(robot.id, parseInt(e.target.value))}
-                className="w-20 border rounded px-2 py-1 text-sm"
-              />
-              <button
-                onClick={() => removeRobot(robot.id)}
-                className="bg-red-500 text-white px-2 py-1 rounded text-xs"
-              >Remove</button>
-            </div>
-          ))}
+  <p className="text-base font-medium">Robots</p>
+  <p className="text-2xl font-bold">{engineers.length}</p>
+
+  <div className="space-y-2 mt-2">
+    {engineers.map((engineer) => (
+      <div
+        key={engineer.id}
+        className="flex justify-between items-center bg-gray-50 p-2 rounded"
+      >
+        {/* Engineer Name */}
+        <p className="text-sm font-medium">{engineer.name}</p>
+
+        {/* Icons */}
+        <div className="flex gap-2">
+          <button
+            onClick={() => addTaskToEngineer(engineer.id)}
+            className="text-green-600 hover:text-green-800"
+          >
+            <Plus size={18} />
+          </button>
+          <button
+            onClick={() => removeEngineer(engineer.id)}
+            className="text-red-600 hover:text-red-800"
+          >
+            <Trash2 size={18} />
+          </button>
         </div>
-        <button className="mt-2 bg-green-500 text-white px-3 py-1 rounded text-sm">Add Robot</button>
       </div>
+    ))}
+  </div>
+
+ 
+</div>
 
       {/* Engineers Card */}
-      <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow">
-        <p className="text-base font-medium">Engineers</p>
-        <p className="text-2xl font-bold">{engineers.length}</p>
-        <div className="space-y-2 mt-2">
-          {engineers.map(eng => (
-            <div key={eng.id} className="flex justify-between items-center">
-              <p className="text-sm">{eng.name}</p>
-              <button
-                onClick={() => removeEngineer(eng.id)}
-                className="bg-red-500 text-white px-2 py-1 rounded text-xs"
-              >Remove</button>
-            </div>
-          ))}
+  
+
+<div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow">
+  <p className="text-base font-medium">Engineers</p>
+  <p className="text-2xl font-bold">{engineers.length}</p>
+
+  <div className="space-y-2 mt-2">
+    {engineers.map((engineer) => (
+      <div
+        key={engineer.id}
+        className="flex justify-between items-center bg-gray-50 p-2 rounded"
+      >
+        {/* Engineer Name */}
+        <p className="text-sm font-medium">{engineer.name}</p>
+
+        {/* Icons */}
+        <div className="flex gap-2">
+          <button
+            onClick={() => addTaskToEngineer(engineer.id)}
+            className="text-green-600 hover:text-green-800"
+          >
+            <Plus size={18} />
+          </button>
+          <button
+            onClick={() => removeEngineer(engineer.id)}
+            className="text-red-600 hover:text-red-800"
+          >
+            <Trash2 size={18} />
+          </button>
         </div>
-        <button className="mt-2 bg-green-500 text-white px-3 py-1 rounded text-sm">Add Engineer</button>
       </div>
+    ))}
+  </div>
+
+ 
+</div>
+
 
       {/* Farmers Card */}
-      <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow">
-        <p className="text-base font-medium">Farmers</p>
-        <p className="text-2xl font-bold">{farmers.length}</p>
-        <div className="space-y-2 mt-2">
-          {farmers.map(farmer => (
-            <div key={farmer.id} className="flex justify-between items-center">
-              <p className="text-sm">{farmer.name}</p>
-              <button
-                onClick={() => removeFarmer(farmer.id)}
-                className="bg-red-500 text-white px-2 py-1 rounded text-xs"
-              >Remove</button>
-            </div>
-          ))}
+   <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow">
+  <p className="text-base font-medium">Farmers</p>
+  <p className="text-2xl font-bold">{farmers.length}</p>
+
+  <div className="space-y-2 mt-2">
+    {farmers.map((farmer) => (
+      <div
+        key={farmer.id}
+        className="flex justify-between items-center bg-gray-50 p-2 rounded"
+      >
+        {/* Farmer Name */}
+        <p className="text-sm font-medium">{farmer.name}</p>
+
+        {/* Icons */}
+        <div className="flex gap-2">
+          <button
+            onClick={() => addFarmer(farmer.id)}   // yeh function aap bana sakti hain
+            className="text-green-600 hover:text-green-800"
+          >
+            <Plus size={18} />
+          </button>
+          <button
+            onClick={() => removeFarmer(farmer.id)}
+            className="text-red-600 hover:text-red-800"
+          >
+            <Trash2 size={18} />
+            
+          </button>
         </div>
-        <button className="mt-2 bg-green-500 text-white px-3 py-1 rounded text-sm">Add Farmer</button>
       </div>
+    ))}
+  </div>
+</div>
+
 
       {/* Earnings / Other Card */}
-      <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow">
-        <p className="text-base font-medium">Earnings</p>
-        <p className="text-2xl font-bold">$15,000</p>
-        <p className="text-[#078838] text-sm font-medium">+15%</p>
-      </div>
+   
+
+ 
+
+
+
+  
+    <div className="flex flex-col gap-4 rounded-lg p-4 border border-[#cedbe8] bg-white shadow">
+      <p className="text-base font-medium">Rental Prices</p>
+
+      {robots.map((robot) => (
+        <div
+          key={robot.id}
+          className="flex items-center justify-between border-b pb-2 last:border-none"
+        >
+          {/* Robot Name & Price */}
+          <div>
+            <p className="text-sm font-medium">{robot.name}</p>
+            <p className="text-lg font-bold">${robot.price.toLocaleString()}</p>
+          </div>
+
+          {/* Actions */}
+          <div className="flex gap-3">
+            {/* Increase */}
+            <div className="relative group">
+              <button
+                onClick={() => increasePrice(robot.id)}
+                className="text-green-600 hover:text-green-800"
+              >
+                <Plus size={18} />
+              </button>
+              <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 
+                px-2 py-1 text-xs text-white bg-green-600 rounded opacity-0 
+                group-hover:opacity-100 transition">
+                Increase
+              </span>
+            </div>
+
+            {/* Decrease */}
+            <div className="relative group">
+              <button
+                onClick={() => decreasePrice(robot.id)}
+                className="text-red-600 hover:text-red-800"
+              >
+                <Minus size={18} />
+              </button>
+              <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 
+                px-2 py-1 text-xs text-white bg-red-600 rounded opacity-0 
+                group-hover:opacity-100 transition">
+                Decrease
+              </span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+
     </div>
 
           {/* Robot Health Section */}
