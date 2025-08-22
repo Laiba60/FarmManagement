@@ -150,7 +150,7 @@ const Dashboard = () => {
   <div className="relative group">
     <button
       onClick={() => addTaskToEngineer(engineer.id)}
-      className="text-green-600 hover:text-green-800"
+      className="text-green-600 hover:text-green-800 cursor-pointer"
     >
       <Plus size={18} />
     </button>
@@ -165,7 +165,7 @@ const Dashboard = () => {
   <div className="relative group">
     <button
       onClick={() => removeEngineer(engineer.id)}
-      className="text-red-600 hover:text-red-800"
+      className="text-red-600 hover:text-red-800 cursor-pointer"
     >
       <Trash2 size={18} />
     </button>
@@ -209,7 +209,7 @@ const Dashboard = () => {
           <div className="relative group">
             <button
               onClick={() => addTaskToEngineer(engineer.id)}
-              className="text-green-600 hover:text-green-800"
+              className="text-green-600 hover:text-green-800 cursor-pointer"
             >
               <Plus size={18} />
             </button>
@@ -224,7 +224,7 @@ const Dashboard = () => {
           <div className="relative group">
             <button
               onClick={() => removeEngineer(engineer.id)}
-              className="text-red-600 hover:text-red-800"
+              className="text-red-600 hover:text-red-800 cursor-pointer"
             >
               <Trash2 size={18} />
             </button>
@@ -262,7 +262,7 @@ const Dashboard = () => {
   <div className="relative group">
     <button
       onClick={() => addFarmer(farmer.id)}
-      className="text-green-600 hover:text-green-800"
+      className="text-green-600 hover:text-green-800 cursor-pointer"
     >
       <Plus size={18} />
     </button>
@@ -277,7 +277,7 @@ const Dashboard = () => {
   <div className="relative group">
     <button
       onClick={() => removeFarmer(farmer.id)}
-      className="text-red-600 hover:text-red-800"
+      className="text-red-600 hover:text-red-800 cursor-pointer"
     >
       <Trash2 size={18} />
     </button>
@@ -318,7 +318,7 @@ const Dashboard = () => {
             <div className="relative group">
               <button
                 onClick={() => increasePrice(robot.id)}
-                className="text-green-600 hover:text-green-800"
+                className="text-green-600 hover:text-green-800 cursor-pointer"
               >
                 <Plus size={18} />
               </button>
@@ -333,7 +333,7 @@ const Dashboard = () => {
             <div className="relative group">
               <button
                 onClick={() => decreasePrice(robot.id)}
-                className="text-red-600 hover:text-red-800"
+                className="text-red-600 hover:text-red-800 cursor-pointer"
               >
                 <Minus size={18} />
               </button>
