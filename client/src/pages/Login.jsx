@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
+import Logo from "../assets/images/Picturelogo.png";
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,33 +13,19 @@ const Login = () => {
     <div className="relative flex flex-col min-h-screen w-full bg-slate-50">
       <div className="flex flex-col flex-1">
         
-        {/* Header */}
-        <header className="flex flex-wrap items-center justify-between border-b border-solid border-b-[#e7edf4] px-4 sm:px-6 lg:px-10 py-3">
-          <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c]">
-            <div className="size-4">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
-              </svg>
-            </div>
-            <a href="/" className="text-[#0d141c] text-base sm:text-lg font-bold leading-tight tracking-[-0.015em]">FarmBot</a>
-          </div>
-          
-          {/* Right Menu */}
-          <div className="flex flex-wrap justify-end gap-4 sm:gap-6 md:gap-8 mt-3 sm:mt-0 flex-1">
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 md:gap-9">
-              <a className="text-[#0d141c] text-sm font-medium leading-normal" href="#">Products</a>
-              <a className="text-[#0d141c] text-sm font-medium leading-normal" href="#">Solutions</a>
-              <a className="text-[#0d141c] text-sm font-medium leading-normal" href="#">Resources</a>
-              <a className="text-[#0d141c] text-sm font-medium leading-normal" href="#">Company</a>
-            </div>
-            <div className="flex gap-2">
-              <button className="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-9 sm:h-10 px-3 sm:px-4 bg-[#0d80f2] text-slate-50 text-xs sm:text-sm font-bold">
-                <span className="truncate">Get Started</span>
-              </button>
-              <button className="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-9 sm:h-10 px-3 sm:px-4 bg-[#e7edf4] text-[#0d141c] text-xs sm:text-sm font-bold">
-                <span className="truncate">Log In</span>
-              </button>
-            </div>
+        {/* Header (Only Logo) */}
+        <header className="flex items-center border-b border-solid  border-b-[#e7edf4] px-4 sm:px-6 lg:px-10 py-3">
+          <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c] bg-green-600">
+            <div className="h-12 w-12  ">
+  <img src={Logo} alt="No image" className="h-full w-full object-contain" />
+</div>
+
+            <a 
+              href="/" 
+              className="text-[#0d141c] text-base sm:text-lg font-bold leading-tight tracking-[-0.015em]"
+            >
+              AgriBull
+            </a>
           </div>
         </header>
 

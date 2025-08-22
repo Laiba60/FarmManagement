@@ -1,7 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Logo from "../assets/images/Picturelogo.png";
+
 const Signup = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
   return (
     <div
       className="relative flex size-full min-h-screen flex-col bg-slate-50 overflow-x-hidden"
@@ -9,37 +12,15 @@ const Signup = () => {
     >
       <div className="layout-container flex h-full grow flex-col">
         
-        {/* Navbar */}
-        <header className="flex flex-wrap items-center justify-between border-b border-solid border-b-[#e7edf4] px-4 sm:px-6 lg:px-10 py-3">
-          <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c]">
-            <div className="size-4">
-              <svg
-                viewBox="0 0 48 48"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
+        {/* Navbar (Only Logo) */}
+        <header className="flex items-center border-b border-solid border-b-[#e7edf4] px-4 sm:px-6 lg:px-10 py-3">
+          <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c]  bg-green-600">
+                      <div className="h-12 w-12  ">
+              <img src={Logo} alt="No image" className="h-full w-full object-contain" />
             </div>
             <h2 className="text-base sm:text-lg font-bold leading-tight tracking-[-0.015em]">
-              FarmTech
+              AgriBull
             </h2>
-          </div>
-          <div className="flex flex-wrap justify-end gap-4 sm:gap-6 md:gap-8 mt-3 sm:mt-0 flex-1">
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 md:gap-9">
-              <a className="text-sm font-medium" href="#">Products</a>
-              <a className="text-sm font-medium" href="#">Solutions</a>
-              <a className="text-sm font-medium" href="#">Resources</a>
-              <a className="text-sm font-medium" href="#">Pricing</a>
-            </div>
-            <button className="flex h-9 sm:h-10 min-w-[84px] items-center justify-center rounded-lg bg-[#e7edf4] px-3 sm:px-4 text-xs sm:text-sm font-bold text-[#0d141c]">
-              Log in
-            </button>
           </div>
         </header>
 
@@ -68,7 +49,9 @@ const Signup = () => {
 
             <div className="flex px-2 sm:px-4 py-3">
               <button
-               onClick={() => navigate("/dashboard")} className="flex h-10 flex-1 items-center justify-center rounded-lg bg-[#0d80f2] px-3 sm:px-4 text-sm font-bold text-white">
+                onClick={() => navigate("/dashboard")}
+                className="flex h-10 flex-1 items-center justify-center rounded-lg bg-[#0d80f2] px-3 sm:px-4 text-sm font-bold text-white"
+              >
                 Sign up
               </button>
             </div>
