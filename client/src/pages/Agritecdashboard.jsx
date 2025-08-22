@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import RealTimeMonitor from "../components/RealTimeMonitor";
 import MissionPlanMap from "../components/missionplanmap";
 
-
+import Logo from "../assets/images/Picturelogo.png";
 
 import { Link } from "react-router-dom";
 import {
@@ -54,21 +54,27 @@ const Agritecdashboard = () => {
           <div className="flex h-full min-h-[300px] lg:min-h-[700px] flex-col justify-between bg-slate-50 p-4 border-b lg:border-b-0">
             <div className="flex flex-col gap-4">
               {/* Logo */}
-              <div className="flex gap-3 items-center">
-                <div
-                  className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-                  style={{
-                    backgroundImage:
-                      'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBubDXRc5dGvENw1Bh-eXC4T4Y741f9lkVY7sUmP3TitxaYOhYSKsn6RKVgipuvBxRZrCuairzIZFyyHJUG5VpZZfOKsx71TxEXfn8UJuO1D6uJqO3XkGbI50t_GVrQrYqWlldPIxnmo1uz4lw61iRDCzzDnp7rnTfCxsZMbnkvfKsfx9y6tOKAaptq9GpsSlEdsliZttg2OuKt8k40hdQ3g-4ZziQWWFwzwpUNAbK6IENhzfiDKBJYlc8km-D_GJsM5QQjdPxRk8z8")',
-                  }}
-                ></div>
-                <a
-                  href="/"
-                  className="text-[#0d141c] text-[17px] font-bold leading-normal"
-                >
-                  AgriTech Solutions
-                </a>
-              </div>
+            
+
+<div className="flex gap-3 items-center">
+  {/* Logo Image */}
+    <div className="h-15 w-15">
+      <img
+        src={Logo}
+        alt="No image"
+        className="h-full w-full object-contain"
+      />
+    </div>
+
+  {/* Logo Text */}
+  <a
+    href="/"
+    className="text-[#0d141c] text-[17px] font-bold leading-normal"
+  >
+    AgriBull
+  </a>
+</div>
+
 
               {/* Menu */}
               <div className="flex flex-col gap-2">

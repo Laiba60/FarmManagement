@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Logo from "../assets/images/Picturelogo.png";
 const SupportChat = () => {
    const navigate = useNavigate();
   return (
@@ -13,20 +14,15 @@ const SupportChat = () => {
         {/* Header */}
         <header className="flex flex-wrap items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf4] px-4 sm:px-6 lg:px-10 py-3">
           <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c]">
-            <div className="size-4">
-              <svg
-                viewBox="0 0 48 48"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-            </div>
+           <div className="h-12 w-12">
+               <img
+                 src={Logo}
+                 alt="No image"
+                 className="h-full w-full object-contain"
+               />
+             </div>
             <a href="/" className="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">
-              FarmBot
+              AgriBull
             </a>
           </div>
           <div className="flex flex-wrap justify-end flex-1 gap-4 sm:gap-8 mt-3 sm:mt-0">

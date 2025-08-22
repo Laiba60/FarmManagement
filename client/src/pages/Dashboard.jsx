@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import Logo from "../assets/images/Picturelogo.png";
 
 const Dashboard = () => {
    const [robots, setRobots] = useState([
@@ -34,30 +34,42 @@ const Dashboard = () => {
         <div className="layout-content-container flex flex-col w-full lg:w-80 bg-slate-50 border-r border-gray-200">
           <div className="flex h-full min-h-[300px] lg:min-h-[700px] flex-col justify-between p-4">
             <div className="flex flex-col gap-4">
-              <div className="flex flex-col">
-                <h1 className="text-[#0d141c] text-lg font-semibold leading-normal">FarmTech</h1>
-                <p className="text-[#49739c] text-sm">Admin</p>
-              </div>
+            <div className="flex items-center gap-3">
+  {/* Logo */}
+  <div className="h-12 w-12">
+    <img
+      src={Logo}
+      alt="No image"
+      className="h-full w-full object-contain"
+    />
+  </div>
+
+  {/* Text */}
+  <h1 className="text-[#0d141c] text-lg font-semibold leading-normal">
+    AgriBull
+  </h1>
+</div>
+
 
               {/* Sidebar Links */}
               <div className="flex flex-col gap-2">
                 {/* Dashboard Link */}
                 <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#e7edf4]">
-                  <p className="text-[#0d141c] text-sm font-medium">
+                  <p className="text-[#0d141c] text-[17px] font-bold">
                     <Link to="/Agritecdashboard">Dashboard</Link>
                   </p>
                 </div>
                 <div className="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg">
-                  <p className="text-[#0d141c] text-sm font-medium">Robots</p>
+                  <p className="text-[#0d141c] text-[17px] font-bold">Robots</p>
                 </div>
                 <div className="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg">
-                  <p className="text-[#0d141c] text-sm font-medium">Engineers</p>
+                  <p className="text-[#0d141c] text-[17px] font-bold">Engineers</p>
                 </div>
                 <div className="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg">
-                  <p className="text-[#0d141c] text-sm font-medium">Rentals</p>
+                  <p className="text-[#0d141c] text-[17px] font-bold">Rentals</p>
                 </div>
                 <div className="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg">
-                  <p className="text-[#0d141c] text-sm font-medium">Settings</p>
+                  <p className="text-[#0d141c] text-[17px] font-bold">Settings</p>
                 </div>
               </div>
             </div>
@@ -68,7 +80,7 @@ const Dashboard = () => {
         <div className="layout-content-container flex flex-col flex-1">
           <div className="flex flex-wrap justify-between gap-3 p-4">
             <p className="text-[#0d141c] tracking-light text-2xl md:text-3xl font-bold leading-tight">
-              Dashboard
+             Owner Dashboard
             </p>
           </div>
 
