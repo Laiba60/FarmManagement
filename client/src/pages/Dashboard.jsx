@@ -146,22 +146,40 @@ const Dashboard = () => {
 
         {/* Icons */}
         <div className="flex gap-2">
-          <button
-            onClick={() => addTaskToEngineer(engineer.id)}
-            className="text-green-600 hover:text-green-800"
-          >
-            <Plus size={18} />
-          </button>
-          <button
-            onClick={() => removeEngineer(engineer.id)}
-            className="text-red-600 hover:text-red-800"
-          >
-            <Trash2 size={18} />
-          </button>
-        </div>
+  {/* Add Task Button */}
+  <div className="relative group">
+    <button
+      onClick={() => addTaskToEngineer(engineer.id)}
+      className="text-green-600 hover:text-green-800"
+    >
+      <Plus size={18} />
+    </button>
+    <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 
+          px-2 py-1 text-xs text-white bg-green-600 rounded opacity-0 
+          group-hover:opacity-100 transition">
+      increase
+    </span>
+  </div>
+
+  {/* Remove Engineer Button */}
+  <div className="relative group">
+    <button
+      onClick={() => removeEngineer(engineer.id)}
+      className="text-red-600 hover:text-red-800"
+    >
+      <Trash2 size={18} />
+    </button>
+    <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 
+          px-2 py-1 text-xs text-white bg-red-600 rounded opacity-0 
+          group-hover:opacity-100 transition">
+      Decrease
+    </span>
+  </div>
+</div>
 
 
-        
+
+
       </div>
     ))}
   </div>
