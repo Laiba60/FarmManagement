@@ -40,15 +40,7 @@ const SupportChat = () => {
                 Company
               </a>
             </div>
-            <div className="flex gap-2">
-              <button className="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-[#0d80f2] text-slate-50 text-sm font-bold">
-                <span className="truncate">Get Started</span>
-              </button>
-              <button
-                 onClick={() => navigate("/login")} className="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-[#e7edf4] text-[#0d141c] text-sm font-bold">
-                <span className="truncate">Log In</span>
-              </button>
-            </div>
+           
           </div>
         </header>
 

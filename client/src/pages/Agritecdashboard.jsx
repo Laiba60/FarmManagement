@@ -107,7 +107,7 @@ const Agritecdashboard = () => {
           <div className="flex flex-wrap justify-between gap-3 p-4">
             <div className="flex flex-col gap-2">
               <p className="text-[28px] lg:text-[32px] font-bold leading-tight">
-                Dashboard
+               My Dashboard
               </p>
               <p className="text-gray-600 text-[15px] md:text-base font-medium">
   Welcome back, Farmer McGregor
