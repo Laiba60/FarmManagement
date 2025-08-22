@@ -131,8 +131,8 @@ const Dashboard = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
       
       {/* Robots Card */}
-      <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow  h-[300px] overflow-y-auto">
-  <p className="text-base font-medium">Robots</p>
+      <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow  h-[300px] overflow-y-auto overflow-x-hidden w-full">
+  <p className="text-base font-bold">Robots</p>
   <p className="text-2xl font-bold">{engineers.length}</p>
 
   <div className="space-y-2 mt-2">
@@ -190,8 +190,8 @@ const Dashboard = () => {
       {/* Engineers Card */}
   
 
-<div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow h-[300px] overflow-y-auto">
-  <p className="text-base font-medium">Engineers</p>
+<div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow h-[300px] overflow-y-auto overflow-x-hidden w-full">
+  <p className="text-base font-bold">Engineers</p>
   <p className="text-2xl font-bold">{engineers.length}</p>
 
   <div className="space-y-2 mt-2">
@@ -243,8 +243,8 @@ const Dashboard = () => {
 
 
       {/* Farmers Card */}
-   <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow  h-[300px] overflow-y-auto">
-  <p className="text-base font-medium">Farmers</p>
+   <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow  h-[300px] overflow-y-auto overflow-x-hidden w-full">
+  <p className="text-base font-bold">Farmers</p>
   <p className="text-2xl font-bold">{farmers.length}</p>
 
   <div className="space-y-2 mt-2">
@@ -299,7 +299,7 @@ const Dashboard = () => {
    
   
     <div className="flex flex-col gap-4 rounded-lg p-4 border border-[#cedbe8] bg-white shadow  h-[300px] overflow-y-auto overflow-x-hidden w-full">
-      <p className="text-base font-medium">Rental Prices</p>
+      <p className="text-base font-bold">Rental Prices</p>
 
       {robots.map((robot) => (
         <div
