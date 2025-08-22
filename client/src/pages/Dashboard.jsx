@@ -68,7 +68,7 @@ useEffect(() => {
     newAlerts.forEach(alert => {
       setTimeout(() => {
         setAlerts(prev => prev.filter(a => a.id !== alert.id));
-      }, 4000);
+      }, 3000);
     });
   }
 }, [robots, farmers, alerts]);

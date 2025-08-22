@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../assets/images/Picturelogo.png";
 const SupportChat = () => {
    const navigate = useNavigate();
+   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div
       className="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden"
@@ -12,37 +13,99 @@ const SupportChat = () => {
     >
       <div className="layout-container flex h-full grow flex-col">
         {/* Header */}
-        <header className="flex flex-wrap items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf4] px-4 sm:px-6 lg:px-10 py-3">
-          <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c]">
-           <div className="h-12 w-12">
-               <img
-                 src={Logo}
-                 alt="No image"
-                 className="h-full w-full object-contain"
-               />
-             </div>
-            <a href="/" className="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">
-              AgriBull
-            </a>
-          </div>
-          <div className="flex flex-wrap justify-end flex-1 gap-4 sm:gap-8 mt-3 sm:mt-0">
-            <div className="flex flex-wrap items-center gap-4 sm:gap-9">
-              <a className="text-[#0d141c] text-sm font-medium" href="#">
-                Products
-              </a>
-              <a className="text-[#0d141c] text-sm font-medium" href="#">
-                Solutions
-              </a>
-              <a className="text-[#0d141c] text-sm font-medium" href="#">
-                Resources
-              </a>
-              <a className="text-[#0d141c] text-sm font-medium" href="#">
-                Company
-              </a>
-            </div>
-           
-          </div>
-        </header>
+        <header className="flex flex-wrap items-center justify-between border-b border-solid border-b-[#e7edf4] px-4 sm:px-6 lg:px-10 py-3">
+      {/* Logo & Brand */}
+      <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c]">
+        <div className="h-12 w-12">
+          <img
+            src={Logo}
+            alt="Logo"
+            className="h-full w-full object-contain"
+          />
+        </div>
+        <a
+          href="/"
+          className="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]"
+        >
+          AgriBull
+        </a>
+      </div>
+<nav className="hidden sm:flex sm:flex-1 justify-end gap-8">
+        <a href="#" className="text-[#0d141c] text-sm font-medium hover:text-[#078838] transition-colors">
+          Home
+        </a>
+        <a href="#" className="text-[#0d141c] text-sm font-medium hover:text-[#078838] transition-colors">
+          Owner Dashboard
+        </a>
+        <a href="#" className="text-[#0d141c] text-sm font-medium hover:text-[#078838] transition-colors">
+          My Dashboard
+        </a>
+        <a href="#" className="text-[#0d141c] text-sm font-medium hover:text-[#078838] transition-colors">
+          Login
+        </a>
+      </nav>
+      {/* Mobile Menu Button */}
+      <button
+        className="sm:hidden text-[#0d141c] focus:outline-none"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {menuOpen ? (
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          ) : (
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          )}
+        </svg>
+      </button>
+
+      {/* Navigation */}
+      <nav
+        className={`${
+          menuOpen ? "flex" : "hidden"
+        } flex-col sm:flex-row sm:flex-1 justify-end w-full sm:w-auto mt-3 sm:mt-0 gap-4 sm:gap-8`}
+      >
+        <a
+          className="text-[#0d141c] text-sm font-medium hover:text-[#078838] transition-colors"
+          href="#"
+        >
+          Home
+        </a>
+        <a
+          className="text-[#0d141c] text-sm font-medium hover:text-[#078838] transition-colors"
+          href="#"
+        >
+          Owner Dashboard
+        </a>
+        <a
+          className="text-[#0d141c] text-sm font-medium hover:text-[#078838] transition-colors"
+          href="#"
+        >
+          My Dashboard
+        </a>
+        <a
+          className="text-[#0d141c] text-sm font-medium hover:text-[#078838] transition-colors"
+          href="#"
+        >
+          Login
+        </a>
+      </nav>
+    </header>
 
         {/* Main content */}
         <div className="px-4 sm:px-6 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
