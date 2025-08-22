@@ -243,11 +243,6 @@ const Dashboard = () => {
 
       {/* Earnings / Other Card */}
    
-
- 
-
-
-
   
     <div className="flex flex-col gap-4 rounded-lg p-4 border border-[#cedbe8] bg-white shadow">
       <p className="text-base font-medium">Rental Prices</p>
