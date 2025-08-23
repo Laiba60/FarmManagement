@@ -110,7 +110,7 @@ const Agritecdashboard = () => {
                My Dashboard
               </p>
               <p className="text-gray-600 text-[15px] md:text-base font-medium">
-  Welcome back, Farmer McGregor
+                Welcome back, Farmer McGregor
 </p>
 
             </div>
@@ -369,7 +369,7 @@ const Agritecdashboard = () => {
                 {
                   title: "Plan Your Next Mission",
       desc: "Easily plan your next spraying mission with our interactive map and route planner.",
-      img: null, // remove static image
+     
       component: <MissionPlanMap />
 ,
                 },

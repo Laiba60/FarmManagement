@@ -3,7 +3,8 @@ import { useState } from "react";
 
 const MissionPlanMap = () => {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyAsWE3nb9mFmF7mshTvuGzhXgodJfQTXdE", // <-- Add your API key here
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+ // <-- Add your API key here
   });
 
   const [markers, setMarkers] = useState([
