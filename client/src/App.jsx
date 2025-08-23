@@ -1,12 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-
 import Dashboard from "./pages/Dashboard";
-import Home from "./pages/Home";                  // ✅ add this
-import Agritecdashboard from "./pages/Agritecdashboard";  // ✅ add this
-import SupportChat from "./pages/SupportChat";    // ✅ add this
+import Home from "./pages/Home";
+import Agritecdashboard from "./pages/Agritecdashboard";
+import SupportChat from "./pages/SupportChat";
 
 function App() {
   return (
@@ -19,6 +21,9 @@ function App() {
         <Route path="/Agritecdashboard" element={<Agritecdashboard />} />
         <Route path="/supportchat" element={<SupportChat />} />
       </Routes>
+
+     
+      <ToastContainer position="top-right" autoClose={3000} />
     </Router>
   );
 }

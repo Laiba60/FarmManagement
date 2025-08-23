@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/Picturelogo.png";
 import { Plus, Trash2, Minus } from "lucide-react";
-
+import { toast } from "react-toastify";
 const Dashboard = () => {
   const [engineers, setEngineers] = useState([
     { id: 1, name: "Ali Khan" },
@@ -27,7 +27,7 @@ const Dashboard = () => {
 
   const [alerts, setAlerts] = useState([]);
 
-  // Auto-close alerts
+  
   const addAlert = (message) => {
     const id = Date.now();
     setAlerts((prev) => [...prev, { id, message }]);
@@ -36,42 +36,26 @@ const Dashboard = () => {
     }, 4000);
   };
 
-  // Update alerts
 useEffect(() => {
-  const newAlerts = [];
-
-  // Robot health alerts
   robots.forEach(robot => {
-    if (robot.health < 50 && !alerts.some(a => a.message === `${robot.name} is low on health!`)) {
-      newAlerts.push({ id: Date.now() + Math.random(), message: `${robot.name} is low on health!` });
+    if (robot.health < 50) {
+      toast.error(`${robot.name} is low on health!`);
     }
   });
 
-  // Robot price pending alerts
   robots.forEach(robot => {
-    if (robot.pricePending && !alerts.some(a => a.message === `${robot.name}'s rental price is pending!`)) {
-      newAlerts.push({ id: Date.now() + Math.random(), message: `${robot.name}'s rental price is pending!` });
+    if (robot.pricePending) {
+      toast.warning(`${robot.name}'s rental price is pending!`);
     }
   });
 
-  // Farmer price pending alerts
   farmers.forEach(farmer => {
-    if (farmer.priceStatus === "pending" && !alerts.some(a => a.message === `${farmer.name}'s price is pending!`)) {
-      newAlerts.push({ id: Date.now() + Math.random(), message: `${farmer.name}'s price is pending!` });
+    if (farmer.priceStatus === "pending") {
+      toast.info(`${farmer.name}'s price is pending!`);
     }
   });
+}, [robots, farmers]);
 
-  if (newAlerts.length > 0) {
-    setAlerts(prev => [...prev, ...newAlerts]);
-
-    // Auto-remove each alert after 4 seconds
-    newAlerts.forEach(alert => {
-      setTimeout(() => {
-        setAlerts(prev => prev.filter(a => a.id !== alert.id));
-      }, 3000);
-    });
-  }
-}, [robots, farmers, alerts]);
 
 
 
