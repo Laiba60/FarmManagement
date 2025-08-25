@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RealTimeMonitor from "../components/RealTimeMonitor";
 import MissionPlanMap from "../components/missionplanmap";
-
+import Section from "../components/Section";
 import Logo from "../assets/images/Picturelogo.png";
 
 import { Link } from "react-router-dom";
@@ -363,18 +363,19 @@ const Agritecdashboard = () => {
 
 
             {/* Mission Planning */}
-            <Section
-              title="Mission Planning"
-              features={[
-                {
-                  title: "Plan Your Next Mission",
-      desc: "Easily plan your next spraying mission with our interactive map and route planner.",
-     
-      component: <MissionPlanMap />
-,
-                },
-              ]}
-            />
+ <Section
+  title="Mission Planning"
+  features={[
+    {
+      
+      title: "Interactive Map",
+      desc: "Plan your mission with real-time mapping tools.",
+      component: <MissionPlanMap />, 
+    },
+    
+  ]}
+  />
+
           </div>
         </div>
       </div>
@@ -382,29 +383,8 @@ const Agritecdashboard = () => {
   );
 };
 
-// Reusable Section Component
-const Section = ({ title, features }) => (
-  <div className="px-4">
-    <h2 className="text-[22px] font-bold pb-3">{title}</h2>
-    <div className="space-y-6">
-      {features.map((f, i) => (
-        <div
-          key={i}
-          className="flex flex-col lg:flex-row gap-4 rounded-lg"
-        >
-          <div className="flex flex-col flex-1 gap-1">
-            {f.subtitle && <p className="text-black text-[15px] md:text-base font-bold">{f.subtitle}</p>}
-            <p className="text-black text-[15px] md:text-base font-bold">{f.title}</p>
-            <p className="text-gray-600 text-[15px] md:text-base font-medium">{f.desc}</p>
-          </div>
-          <div
-            className="w-full lg:w-1/2 bg-center bg-cover rounded-lg aspect-video"
-            style={{ backgroundImage: `url("${f.img}")` }}
-          ></div>
-        </div>
-      ))}
-    </div>
-  </div>
-);
+
+
+
 
 export default Agritecdashboard;
