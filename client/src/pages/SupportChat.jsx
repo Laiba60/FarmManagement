@@ -8,7 +8,7 @@ const SupportChat = () => {
     <div
       className="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden"
       style={{
-        fontFamily: 'Inter, "Noto Sans", sans-serif',
+         fontFamily: '"Roboto", Inter, "Noto Sans", sans-serif',
       }}
     >
       <div className="layout-container flex h-full grow flex-col">
@@ -31,16 +31,16 @@ const SupportChat = () => {
         </a>
       </div>
 <nav className="hidden sm:flex sm:flex-1 justify-end gap-8">
-        <a href="#" className="text-[#0d141c] text-sm font-medium hover:text-[#078838] transition-colors">
+        <a href="#" className="text-[#0d141c] text-[16px] font-bold hover:text-[#078838] transition-colors">
           Home
         </a>
-        <a href="#" className="text-[#0d141c] text-sm font-medium hover:text-[#078838] transition-colors">
+        <a href="#" className="text-[#0d141c] text-[16px] font-bold hover:text-[#078838] transition-colors">
           Owner Dashboard
         </a>
-        <a href="#" className="text-[#0d141c] text-sm font-medium hover:text-[#078838] transition-colors">
+        <a href="#" className="text-[#0d141c] text-[16px] font-bold hover:text-[#078838] transition-colors">
           My Dashboard
         </a>
-        <a href="#" className="text-[#0d141c] text-sm font-medium hover:text-[#078838] transition-colors">
+        <a href="#" className="text-[#0d141c] text-[16px] font-bold hover:text-[#078838] transition-colors">
           Login
         </a>
       </nav>
