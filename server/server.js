@@ -10,11 +10,21 @@ const app = express();
 // Allow requests from your frontend (http://localhost:5173)
 // You can also use app.use(cors()) to allow all origins during development
 app.use(cors({
-    origin: 'http://localhost:5173', 
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    origin: (origin, callback) => {
+        // allow requests with no origin (Postman, curl)
+        if (!origin) return callback(null, true);
+
+        // allow any localhost origin
+        if (origin.startsWith('http://localhost')) {
+            return callback(null, true);
+        }
+
+        // block other origins
+        callback(new Error('Not allowed by CORS'));
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
-
 // Middleware for JSON
 app.use(express.json());
 
