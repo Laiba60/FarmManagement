@@ -1,9 +1,19 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors'); // ✅ Import CORS
 const connectDB = require('./database');
 const setupSwagger = require('./swagger');  // Import swagger setup
 
 const app = express();
+
+// ===== CORS Middleware =====
+// Allow requests from your frontend (http://localhost:5173)
+// You can also use app.use(cors()) to allow all origins during development
+app.use(cors({
+    origin: 'http://localhost:5173', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    credentials: true
+}));
 
 // Middleware for JSON
 app.use(express.json());
@@ -16,16 +26,17 @@ setupSwagger(app);  // Swagger API docs available at /api-docs
 
 // Routes
 const authRoutes = require('./routes/auth');
-app.use('/api/auth', authRoutes);
+app.use('/auth', authRoutes);
 
 const dashboardRoutes = require('./routes/dashboard');
-app.use('/api/dashboard', dashboardRoutes);
+app.use('/dashboard', dashboardRoutes);
+
 // Chatbot Routes
 const chatbotRoutes = require('./routes/chatbot');
-app.use('/api/chatbot', chatbotRoutes);
+app.use('/chatbot', chatbotRoutes);
 
 const engineersRoutes = require('./routes/engineers');
-app.use('/api/engineers', engineersRoutes);
+app.use('/engineers', engineersRoutes);
 
 // Test Routes
 app.get('/', (req, res) => {

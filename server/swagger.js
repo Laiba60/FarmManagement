@@ -11,7 +11,7 @@ const options = {
       description: 'API documentation for Farm Management system',
     },
     servers: [
-      { url: 'http://localhost:5000/api' }, // base URL
+      { url: 'http://localhost:5000' }, // base URL
     ],
     components: {
       securitySchemes: {

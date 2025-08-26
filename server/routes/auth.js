@@ -132,9 +132,12 @@ router.post('/login', async (req, res) => {
 
         res.json({ token });
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Server error' });
-    }
+    console.error('Signup error:', err.message); // logs main error message
+    console.error(err.stack); // logs full stack trace
+    res.status(500).json({ error: 'Server error', details: err.message }); // send error message to frontend
+}
+
+
 });
 
 module.exports = router;
