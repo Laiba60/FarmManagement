@@ -104,12 +104,12 @@ useEffect(() => {
         {/* Sidebar */}
         <div className="layout-content-container flex flex-col w-full lg:w-80 bg-slate-50 border-r border-gray-200">
           <div className="flex h-full min-h-[300px] lg:min-h-[700px] flex-col justify-between p-4">
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-3">
+            <div className="flex flex-col gap-4 ">
+              <div className="flex items-center gap-3 bg-green-700 ">
                 <div className="h-12 w-12">
                   <img src={Logo} alt="No image" className="h-full w-full object-contain" />
                 </div>
-                <h1 className="text-[#0d141c] text-lg font-semibold leading-normal">AgriBull</h1>
+                <h1 className="text-white text-lg font-semibold leading-normal">AgriBull</h1>
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#e7edf4]">

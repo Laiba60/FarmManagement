@@ -56,7 +56,7 @@ const Agritecdashboard = () => {
               {/* Logo */}
             
 
-<div className="flex gap-3 items-center">
+<div className="flex gap-3 items-center bg-green-700">
   {/* Logo Image */}
     <div className="h-15 w-15">
       <img
@@ -69,7 +69,7 @@ const Agritecdashboard = () => {
   {/* Logo Text */}
   <a
     href="/"
-    className="text-[#0d141c] text-[17px] font-bold leading-normal"
+    className="text-white text-[17px] font-bold leading-normal"
   >
     AgriBull
   </a>

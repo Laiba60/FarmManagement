@@ -41,17 +41,17 @@ const SupportChat = () => {
     <div className="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden" style={{ fontFamily: '"Roboto", Inter, "Noto Sans", sans-serif' }}>
       {/* Header (unchanged) */}
       <header className="flex flex-wrap items-center justify-between border-b border-solid border-b-[#e7edf4] px-4 sm:px-6 lg:px-10 py-3">
-        <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c]">
+        <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c] bg-green-700">
           <div className="h-12 w-12">
             <img src={Logo} alt="Logo" className="h-full w-full object-contain" />
           </div>
-          <a href="/" className="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">AgriBull</a>
+          <a href="/" className="text-white text-lg font-bold leading-tight tracking-[-0.015em]">AgriBull</a>
         </div>
         <nav className="hidden sm:flex sm:flex-1 justify-end gap-8">
-          <a href="#" className="text-[#0d141c] text-[16px] font-bold hover:text-[#078838] transition-colors">Home</a>
-          <a href="#" className="text-[#0d141c] text-[16px] font-bold hover:text-[#078838] transition-colors">Owner Dashboard</a>
-          <a href="#" className="text-[#0d141c] text-[16px] font-bold hover:text-[#078838] transition-colors">My Dashboard</a>
-          <a href="#" className="text-[#0d141c] text-[16px] font-bold hover:text-[#078838] transition-colors">Login</a>
+          <a href="/" className="text-green-700 text-[16px] font-bold  transition-colors">Home</a>
+          <a href="/dashboard" className="text-green-700 text-[16px] font-bold  transition-colors">Owner Dashboard</a>
+          <a href="/Agritecdashboard" className="text-green-700 text-[16px] font-bold  transition-colors">My Dashboard</a>
+          <a href="/login" className="text-green-700 text-[16px] font-bold  transition-colors">Login</a>
         </nav>
       </header>
 
@@ -69,7 +69,7 @@ const SupportChat = () => {
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
             />
-            <button onClick={handleAsk} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Ask</button>
+            <button onClick={handleAsk} className="px-4 py-2 bg-green-700 text-white rounded ">Ask</button>
           </div>
 
           {/* Chatbot Answer */}

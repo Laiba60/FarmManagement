@@ -45,9 +45,9 @@ const Home = () => {
        
         <nav className="hidden md:flex items-center space-x-6 font-medium">
           <Link to="/" className="text-green-700 font-bold hover:underline">Home</Link>
-          <Link to="/about" className="text-green-700 font-bold hover:underline">Owner Dashboard</Link>
-          <Link to="/services" className="text-green-700 font-bold hover:underline">Farmer Dashboard</Link>
-          <Link to="/contact" className="text-green-700 font-bold hover:underline">SupportChat</Link>
+          <Link to="/dashboard" className="text-green-700 font-bold hover:underline">Owner Dashboard</Link>
+          <Link to="/Agritecdashboard" className="text-green-700 font-bold hover:underline">Farmer Dashboard</Link>
+          <Link to="/supportchat" className="text-green-700 font-bold hover:underline">SupportChat</Link>
           
          
           <Link
