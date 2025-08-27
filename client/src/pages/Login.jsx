@@ -41,7 +41,7 @@ const Login = () => {
 
         {/* Header (Only Logo) */}
         <header className="flex items-center border-b border-solid border-b-[#e7edf4] px-4 sm:px-6 lg:px-10 py-3">
-          <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c] bg-green-600">
+          <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c] bg-green-700">
             <div className="h-12 w-12">
               <img src={Logo} alt="No image" className="h-full w-full object-contain" />
             </div>
@@ -56,7 +56,7 @@ const Login = () => {
           <div className="flex flex-col w-full max-w-[512px]">
 
             {/* Title */}
-            <h2 className="text-[#0d141c] text-[22px] sm:text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5">
+            <h2 className=" text-green-700 text-[22px] sm:text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5">
               Log in to your account
             </h2>
 
@@ -105,14 +105,14 @@ const Login = () => {
             <div className="flex px-4 py-3">
               <button
                 onClick={handleLogin}
-                className="flex h-10 flex-1 items-center justify-center rounded-lg bg-blue-600 hover:bg-blue-700 px-4 text-sm sm:text-base font-bold text-slate-50">
+                className="flex h-10 flex-1 items-center justify-center rounded-lg bg-green-700 px-4 text-sm sm:text-base font-bold text-slate-50">
                 Log In
               </button>
             </div>
 
             {/* Forgot Password */}
             <p className="text-[#49739c] text-xs sm:text-sm text-center underline px-4 pt-1 pb-3">
-              Forgot Password?
+              Dont have an account? <a href="/signup" className="font-semibold">Sign up</a>
             </p>
           </div>
         </div>

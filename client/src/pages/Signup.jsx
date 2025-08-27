@@ -61,12 +61,12 @@ const Signup = () => {
     >
       <div className="layout-container flex h-full grow flex-col">
         {/* Navbar (Only Logo) */}
-        <header className="flex items-center border-b border-solid border-b-[#e7edf4] px-4 sm:px-6 lg:px-10 py-3">
-          <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c]  bg-green-600">
+        <header className="flex items-center border-b border-solid border-b-[#e7edf4] bg-white px-4 sm:px-6 lg:px-10 py-3">
+          <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c] bg-green-700">
             <div className="h-12 w-12">
               <img src={Logo} alt="No image" className="h-full w-full object-contain" />
             </div>
-            <h2 className="text-base sm:text-lg font-bold leading-tight tracking-[-0.015em]">
+            <h2 className="text-base  text-white sm:text-lg font-bold leading-tight tracking-[-0.015em]">
               AgriBull
             </h2>
           </div>
@@ -75,7 +75,7 @@ const Signup = () => {
         {/* Signup Form */}
         <div className="flex flex-1 justify-center py-5 px-4 sm:px-8 md:px-20 lg:px-40">
           <div className="flex w-full max-w-[512px] flex-col py-5">
-            <h2 className="pb-3 pt-5 text-center text-[22px] sm:text-[26px] md:text-[28px] font-bold leading-tight">
+            <h2 className="pb-3 pt-5 text-center text-green-700 text-[22px] sm:text-[26px] md:text-[28px] font-bold leading-tight">
               Sign up for FarmTech
             </h2>
 
@@ -146,7 +146,7 @@ const Signup = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex h-10 flex-1 items-center justify-center rounded-lg bg-[#0d80f2] px-3 sm:px-4 text-sm font-bold text-white disabled:bg-gray-400"
+                  className="flex h-10 flex-1 items-center justify-center rounded-lg bg-green-700 px-3 sm:px-4 text-sm font-bold text-white disabled:bg-gray-400"
                 >
                   {loading ? "Signing up..." : "Sign up"}
                 </button>
