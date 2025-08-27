@@ -133,14 +133,18 @@ const Home = () => {
     </header>
  
 
-    <section
-      className="pt-20 bg-cover bg-center w-full"
-    style={{ backgroundImage: `url(${bg})` }}
-    >
-      <div
-        className="container mx-auto px-4 md:px-8 py-20 text-white"
-        data-aos="fade-up"
-      >
+   <section
+  className="pt-20 w-full bg-no-repeat bg-center bg-cover sm:bg-cover md:bg-cover"
+  style={{
+    backgroundImage: `url(${bg})`,
+    backgroundSize: "cover",       
+    backgroundPosition: "center",  
+  }}
+>
+  <div
+    className="container mx-auto px-4 md:px-8 py-20 text-white"
+    data-aos="fade-up"
+  >
         <div className="flex mb-8">
           <img
             src="src/bg2.png"
@@ -298,10 +302,37 @@ const Home = () => {
     </div>
 
 
-    <section
-      className="pt-20 h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] bg-cover bg-center bg-no-repeat"
-   style={{ backgroundImage: `url(${Bg3})` }}
-    ></section>
+    <section className="w-full">
+      {/* Navbar */}
+      <nav className="bg-green-700 py-4">
+        <ul className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-12 text-white font-semibold text-base md:text-lg">
+          <li>Agriculture Robots</li>
+          <li>Projects Completed</li>
+          <li>Satisfied Clients</li>
+          <li>Expert Engineers</li>
+        </ul>
+      </nav>
+
+      {/* Hero Section */}
+      <div
+        className="relative h-[70vh] md:h-[90vh] flex items-center px-6 md:px-10 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')",
+        }}
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
+
+        {/* Heading */}
+        <h1 className="relative text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold max-w-xl leading-tight">
+          Agriculture Matters to the Future of Development
+        </h1>
+      </div>
+    </section>
+ 
+
+
 
    
     <section id="projects" className="py-16">
