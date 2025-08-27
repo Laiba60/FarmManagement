@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Picturelogo from "../assets/images/Picturelogo.png";
 import BgImage from "../assets/images/WPS Photo Edit2.png";
+
 import bg from "../assets/images/bg.png";
 import Dot from "../assets/images/dot.png";
 import Dot2 from "../assets/images/dot2.png";
@@ -30,64 +31,108 @@ const Home = () => {
   
   return (
     
-  
-  <div className="bg-white text-gray-800 max-w-full overflow-x-hidden">
+  <div className="bg-white  max-w-full overflow-x-hidden font-roboto mx-5">
    
     <header className="bg-white shadow-md fixed w-full z-50">
-      <div
-        className="container mx-auto flex justify-between items-center py-4 px-4 md:px-8"
-      >
+      <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-3 md:px-8">
         
+        {/* Logo */}
         <div className="flex items-center space-x-2">
           <img src={Picturelogo} alt="Logo" className="w-20 h-10" />
           <span className="font-bold text-lg text-green-800">AgriBot</span>
         </div>
 
        
-        <nav className="hidden md:flex space-x-6 font-medium">
-          <Link
-           to="/signup"
-            className="mt-2 inline-block bg-green-700 px-6 py-2 rounded text-white font-medium"
-            >Register</Link>
+        <nav className="hidden md:flex items-center space-x-6 font-medium">
+          <Link to="/" className="text-green-700 font-bold hover:underline">Home</Link>
+          <Link to="/about" className="text-green-700 font-bold hover:underline">Owner Dashboard</Link>
+          <Link to="/services" className="text-green-700 font-bold hover:underline">Farmer Dashboard</Link>
+          <Link to="/contact" className="text-green-700 font-bold hover:underline">SupportChat</Link>
           
+         
           <Link
-    to="/login"
-    className="mt-2 inline-block bg-green-700 px-6 py-2 rounded text-white font-medium"
-  >
-    Login
-  </Link>
+            to="/signup"
+            className="flex items-center gap-2 bg-green-700 px-4 py-2 rounded text-white font-medium hover:bg-green-800"
+          >
           
+            <svg xmlns="http://www.w3.org/2000/svg" 
+              className="w-5 h-5" fill="none" viewBox="0 0 24 24" 
+              stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" 
+                d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4" />
+              <path strokeLinecap="round" strokeLinejoin="round" 
+                d="M20 8v6m3-3h-6" />
+            </svg>
+            Register
+          </Link>
+          <Link
+            to="/login"
+            className="flex items-center gap-2 bg-green-700 px-4 py-2 rounded text-white font-medium hover:bg-green-800"
+          >
+            {/* Login SVG */}
+            <svg xmlns="http://www.w3.org/2000/svg" 
+              className="w-5 h-5" fill="none" viewBox="0 0 24 24" 
+              stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" 
+                d="M15 12H3m6-6l-6 6 6 6M21 3h-6a2 2 0 00-2 2v14a2 2 0 002 2h6"/>
+            </svg>
+            Login
+          </Link>
         </nav>
 
        
-        <button  onClick={() => setIsOpen(!isOpen)}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
           className="md:hidden p-2 text-green-700 focus:outline-none"
-          id="menu-toggle"
         >
           ☰
         </button>
       </div>
 
-     
-     {isOpen && (
+      {/* Mobile Menu */}
+      {isOpen && (
         <div className="md:hidden flex flex-col space-y-4 px-4 pb-4 bg-white shadow">
+          <Link to="/" className="block py-2 text-green-700">Home</Link>
+          <Link to="/about" className="block py-2 text-green-700">Owner Dashboard</Link>
+          <Link to="/services" className="block py-2 text-green-700">Farmer Dashboard</Link>
+          <Link to="/contact" className="block py-2 text-green-700">Supportchat</Link>
+
           <Link
             to="/signup"
-            className="block bg-green-700 px-4 py-2 rounded text-white text-center"
+            className="flex items-center justify-center gap-2 bg-green-700 px-4 py-2 rounded text-white"
           >
+            {/* Register SVG */}
+            <svg xmlns="http://www.w3.org/2000/svg" 
+              className="w-5 h-5" fill="none" viewBox="0 0 24 24" 
+              stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" 
+                d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4" />
+              <path strokeLinecap="round" strokeLinejoin="round" 
+                d="M20 8v6m3-3h-6" />
+            </svg>
             Register
           </Link>
+
           <Link
             to="/login"
-            className="block bg-green-700 px-4 py-2 rounded text-white text-center"
+            className="flex items-center justify-center gap-2 bg-green-700 px-4 py-2 rounded text-white"
           >
+            {/* Login SVG */}
+            <svg xmlns="http://www.w3.org/2000/svg" 
+              className="w-5 h-5" fill="none" viewBox="0 0 24 24" 
+              stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" 
+                d="M15 12H3m6-6l-6 6 6 6M21 3h-6a2 2 0 00-2 2v14a2 2 0 002 2h6"/>
+            </svg>
             Login
           </Link>
         </div>
       )}
     </header>
+ 
 
-   
     <section
       className="pt-20 bg-cover bg-center w-full"
     style={{ backgroundImage: `url(${bg})` }}
@@ -103,11 +148,7 @@ const Home = () => {
             className="h-32 sm:h-40 object-cover rounded-lg"
           />
         </div>
-        <a
-          href="#"
-          className="mt-6 inline-block bg-green-700 px-6 py-3 rounded text-white font-medium"
-          >Get Started</a
-        >
+       
       </div>
     </section>
 
@@ -174,7 +215,7 @@ const Home = () => {
         />
       </div>
       <div className="md:w-1/3" data-aos="fade-left">
-        <p className="text-lg font-semibold text-orange-400">Our Introduction</p>
+        <p className="text-[17px] font-semibold text-orange-400">Our Introduction</p>
         <h2 className="text-3xl font-bold text-black">
           Agriculture Farm Automation
         </h2>
@@ -219,7 +260,7 @@ const Home = () => {
     
     <section id="services" className="bg-orange-50 py-16">
       <div className="container mx-auto px-4 md:px-8 text-center">
-        <h2 className="text-sm mb-4 text-orange-400" data-aos="fade-up">
+        <h2 className="text-[17px] font-bold mb-4 text-orange-400" data-aos="fade-up">
           Our Services
         </h2>
         <h2 className="text-3xl font-bold mb-12" data-aos="fade-up">
@@ -355,7 +396,7 @@ const Home = () => {
           />
         </div>
         <div className="md:w-1/3" data-aos="fade-left">
-          <p className="text-sm text-orange-400">Our Farm Benefits</p>
+          <p className="text-[17px] font-bold text-orange-400">Our Farm Benefits</p>
           <h2 className="text-3xl font-bold">Why Choose Us Agribot Market</h2>
           <p className="text-sm">
             There are many variations of passages of available but the majortity
@@ -391,7 +432,7 @@ const Home = () => {
   
     <section className="bg-gray-50 py-16">
       <div className="container mx-auto px-4 text-center">
-        <p className="text-sm text-orange-400">From the Blog</p>
+        <p className="text-[17px] font-bold text-orange-400">From the Blog</p>
         <h2 className="text-3xl font-bold mb-12" data-aos="fade-up">
           News & Articles
         </h2>
