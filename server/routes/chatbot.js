@@ -5,7 +5,10 @@ const router = express.Router();
 const faqs = [
   { q: 'What is FarmBot?', a: 'FarmBot is an automated farming robot that helps with planting, watering, and monitoring crops.' },
   { q: 'How does FarmBot work?', a: 'It works using a combination of hardware, software, and sensors to automate farming tasks.' },
-  { q: 'What are the benefits of using FarmBot?', a: 'Saves time, reduces manual labor, increases efficiency, and improves crop yield.' }
+  { q: 'What are the benefits of using FarmBot?', a: 'Saves time, reduces manual labor, increases efficiency, and improves crop yield.' },
+  { q: 'How do I set up my FarmBot?', a: 'Follow the setup guide provided in the user manual or on our website.' },
+  { q: 'Can I control FarmBot remotely?', a: 'Yes, FarmBot can be controlled remotely through a web or mobile application, allowing you to monitor your farm or garden from anywhere, adjust settings, and receive notifications' },
+  
 ];
 
 // Popular topics
