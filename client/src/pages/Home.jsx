@@ -25,7 +25,7 @@ import Chose from "../assets/images/chose.png";
 import Blog1 from "../assets/images/blog1.png";
 import Blog2 from "../assets/images/blog2.png";
 import Blog3 from "../assets/images/blog3.png";
-
+import Robot from "../components/Robot";
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
   
@@ -272,6 +272,7 @@ const Home = () => {
         </h2>
       </div>
     </section>
+    <Robot />
     <div
       className="container mx-auto px-4 md:px-8 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 -mt-30 relative z-10"
     >
