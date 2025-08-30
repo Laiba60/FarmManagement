@@ -3,7 +3,7 @@ import RealTimeMonitor from "../components/RealTimeMonitor";
 import MissionPlanMap from "../components/missionplanmap";
 import Section from "../components/Section";
 import Logo from "../assets/images/Picturelogo.png";
-
+import { getEngineers, getBatteryStatus, getChemicalLevel } from "../api";
 import { Link } from "react-router-dom";
 import {
   AreaChart,
@@ -15,33 +15,37 @@ import {
   ResponsiveContainer,
 } from "recharts";
 const Agritecdashboard = () => {
- 
   const [engineers, setEngineers] = useState([]);
-  const [battery, setBattery] = useState(72); 
-  const [chemical, setChemical] = useState(65); 
-  const data = [
-    { name: "Remaining Spray", value: 65 },
-    { name: "Robot Battery Status", value: 80 },
-    { name: "Previous Work", value: 20 },
-     { name: "Remaining Chemical", value: 80 },
-  ];
+  const [battery, setBattery] = useState(0);
+  const [chemical, setChemical] = useState(0);
+ 
   useEffect(() => {
-    
-    setEngineers([
-      { name: "Ali Khan", expertise: "Drone Navigation", status: "Available" },
-      { name: "Sara Ahmed", expertise: "Chemical Spraying", status: "Available" },
-      { name: "John Doe", expertise: "Robotics Engineer", status: "Busy" },
-      { name: "John Doe", expertise: "Robotics Engineer", status: "Busy" },
-      { name: "John Doe", expertise: "Robotics Engineer", status: "Busy" },
-      { name: "John Doe", expertise: "Robotics Engineer", status: "Busy" },
-      { name: "John Doe", expertise: "Robotics Engineer", status: "Busy" },
-    
-         { name: "John Doe", expertise: "Robotics Engineer", status: "Busy" },
-      { name: "John Doe", expertise: "Robotics Engineer", status: "Busy" },
-      { name: "John Doe", expertise: "Robotics Engineer", status: "Busy" },
-                      
-    ]);
+    const fetchData = async () => {
+      try {
+        const engineersData = await getEngineers();
+        setEngineers(engineersData);
+
+        const batteryData = await getBatteryStatus();
+        setBattery(batteryData.value); // depends on API response
+
+        const chemicalData = await getChemicalLevel();
+        setChemical(chemicalData.value);
+      } catch (error) {
+        console.error("API fetch error:", error);
+      }
+    };
+
+    fetchData();
   }, []);
+ 
+  const [chartData, setChartData] = useState([
+  { name: 'Jan', value: 30 },
+  { name: 'Feb', value: 50 },
+  { name: 'Mar', value: 45 },
+]);
+
+
+
 
   return (
     <div
@@ -311,7 +315,7 @@ const Agritecdashboard = () => {
       <div className="p-4 border rounded-lg bg-white shadow-md">
         <ResponsiveContainer width="100%" height={250}>
           <AreaChart
-            data={data}
+            data={chartData}
             margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
           >
             <defs>
@@ -362,7 +366,7 @@ const Agritecdashboard = () => {
 </div>
 
 
-            {/* Mission Planning */}
+            
  <Section
   title="Mission Planning"
   features={[
