@@ -3,6 +3,21 @@ import { Link } from "react-router-dom";
 import Logo from "../assets/images/Picturelogo.png";
 import { Plus, Trash2, Minus } from "lucide-react";
 import { toast } from "react-toastify";
+import {
+  getRobots,
+  addRobot,
+  updateRobot,
+  deleteRobot,
+  getEngineers,
+  addEngineer,
+  updateEngineer,
+  deleteEngineer,
+  getFarmers,
+  addFarmer,
+  updateFarmer,
+  deleteFarmer,
+} from "../api"; 
+
 const Dashboard = () => {
   const [engineers, setEngineers] = useState([
     { id: 1, name: "Ali Khan" },
@@ -145,6 +160,8 @@ useEffect(() => {
             ))}
           </div>
 
+
+
           {/* Robots / Engineers / Farmers Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
             {/* Robots */}
@@ -220,6 +237,8 @@ useEffect(() => {
               ))}
             </div>
           </div>
+
+
 
           {/* Robot Health & Status */}
           <h2 className="text-[#0d141c] text-lg md:text-2xl font-bold px-4 pb-3 pt-5">Robot Health</h2>
