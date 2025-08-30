@@ -47,6 +47,11 @@ app.use('/chatbot', chatbotRoutes);
 
 const engineersRoutes = require('./routes/engineers');
 app.use('/engineers', engineersRoutes);
+const farmerRoutes = require("./routes/farmers");
+app.use("/farmers", farmerRoutes);
+const robotsRoutes = require('./routes/robots');
+app.use('/robots', robotsRoutes);
+
 
 // Test Routes
 app.get('/', (req, res) => {
