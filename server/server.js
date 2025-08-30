@@ -33,7 +33,28 @@ connectDB();
 
 // Swagger docs route
 setupSwagger(app);  // Swagger API docs available at /api-docs
+// Dummy data
+const engineers = [
+  { name: "Ali", expertise: "Precision Spraying", status: "Available" },
+  { name: "Sara", expertise: "GPS Navigation", status: "Busy" },
+  { name: "Ahmed", expertise: "Soil Analysis", status: "Available" },
+];
 
+let batteryStatus = { value: 75 }; 
+let chemicalLevel = { value: 60 };
+
+// Routes
+app.get("/engineers", (req, res) => {
+  res.json(engineers);
+});
+
+app.get("/battery", (req, res) => {
+  res.json(batteryStatus);
+});
+
+app.get("/chemical", (req, res) => {
+  res.json(chemicalLevel);
+});
 // Routes
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
@@ -52,6 +73,8 @@ app.use("/farmers", farmerRoutes);
 const robotsRoutes = require('./routes/robots');
 app.use('/robots', robotsRoutes);
 
+const missionsRoutes = require("./routes/missions");
+app.use("/missions", missionsRoutes);
 
 // Test Routes
 app.get('/', (req, res) => {
