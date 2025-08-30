@@ -3,20 +3,7 @@ import { Link } from "react-router-dom";
 import Logo from "../assets/images/Picturelogo.png";
 import { Plus, Trash2, Minus } from "lucide-react";
 import { toast } from "react-toastify";
-import {
-  getRobots,
-  addRobot,
-  updateRobot,
-  deleteRobot,
-  getEngineers,
-  addEngineer,
-  updateEngineer,
-  deleteEngineer,
-  getFarmers,
-  addFarmer,
-  updateFarmer,
-  deleteFarmer,
-} from "../api"; 
+
 
 const Dashboard = () => {
   const [engineers, setEngineers] = useState([
