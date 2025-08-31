@@ -1,13 +1,12 @@
-const mongoose3 = require('mongoose');
+const mongoose = require("mongoose");
 
-const rentalSchema = new mongoose3.Schema({
-  robot: { type: mongoose3.Schema.Types.ObjectId, ref: 'Robot', required: true },
-  farmer: { type: mongoose3.Schema.Types.ObjectId, ref: 'User', required: true },
-  startDate: { type: Date, required: true },
-  endDate: { type: Date, required: true },
+const RentalSchema = new mongoose.Schema({
+  duration: { type: String, required: true }, 
   price: { type: Number, required: true },
-  paid: { type: Boolean, default: false },
-  createdAt: { type: Date, default: Date.now }
+  unit: { type: String, default: "/month" },
+  features: [String],
+  isBooked: { type: Boolean, default: false }, 
+  bookedAt: { type: Date } 
 });
 
-module.exports = mongoose3.model('Rental', rentalSchema);
+module.exports = mongoose.model("Rental", RentalSchema);

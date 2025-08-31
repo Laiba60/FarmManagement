@@ -73,10 +73,12 @@ app.use('/robots', robotsRoutes);
 
 const missionsRoutes = require("./routes/missions");
 app.use("/missions", missionsRoutes);
+const rentalsRoutes = require("./routes/rentals");
+app.use("/rentals", rentalsRoutes);
 
 
 app.get('/', (req, res) => {
-    res.send('🚀 Farm Management API Running');
+    res.send(' Farm Management API Running');
 });
 
 app.get('/faqs', (req, res) => {
@@ -89,4 +91,4 @@ app.get('/faqs', (req, res) => {
 
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
