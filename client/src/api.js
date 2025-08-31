@@ -40,4 +40,16 @@ export const getChemicalLevel = async () => {
   return response.data; 
 };
 
+export const getRentals = async () => {
+  const res = await api.get("/rentals");
+  return res.data;
+};
+
+
+export const rentNow = async (rentalId) => {
+  const res = await api.post(`/rentals/${rentalId}/rent`); 
+  return res.data;
+};
+
+
 export default api;
