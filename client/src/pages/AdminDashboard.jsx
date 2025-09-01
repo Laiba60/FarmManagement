@@ -17,7 +17,7 @@ const AdminDashboard = () => {
   const [alerts, setAlerts] = useState([]);
   const shownFarmerAlerts = useRef(new Set());
 
-  // 🔹 Load Data
+ 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -38,15 +38,7 @@ const AdminDashboard = () => {
   }, []);
 
   // 🔹 Alerts
-useEffect(() => {
-  farmers.forEach((farmer) => {
-    // Only show toast if price is pending and not shown before
-    if (farmer.priceStatus === "pending" && !shownFarmerAlerts.current.has(farmer._id)) {
-      toast.info(`${farmer.name}'s price is pending!`);
-      shownFarmerAlerts.current.add(farmer._id);
-    }
-  });
-}, [farmers]);
+
 
 // ================= CRUD Actions =================
 
@@ -115,16 +107,21 @@ const addRobot = async () => {
       health: 100,
       status: "Idle",
     });
+
+    const newRobot = res.data.robot; // 👈 robot object nikalo
+
     setRobots(prev => {
-      const exists = prev.find(r => r._id === res.data._id);
+      const exists = prev.find(r => r._id === newRobot._id);
       if (exists) return prev;
-      return [...prev, res.data];
+      return [...prev, newRobot]; // 👈 sirf robot add karo
     });
+
     toast.success("Robot added!");
   } catch {
     toast.error("Failed to add robot");
   }
 };
+
 
 const removeRobot = async (id) => {
   try {
@@ -271,40 +268,47 @@ const getStatusColor = (status) => {
           {/* Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
             {/* Robots */}
-            <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow h-[300px] overflow-y-auto overflow-x-hidden">
-              <p className="text-base font-bold">Robots</p>
-              <p className="text-2xl font-bold">{robots.length}</p>
-              <button
-                onClick={addRobot}
-                className="mt-1 px-2 py-1 bg-green-600 text-white rounded hover:bg-green-700 text-sm"
-              >
-                ➕ Add Robot
-              </button>
-              <div className="space-y-2 mt-2">
-                {robots.map((robot) => (
-                  <div
-                    key={robot._id}
-                    className="flex justify-between items-center bg-gray-50 p-2 rounded"
-                  >
-                    <p className="text-sm font-medium">{robot.name}</p>
-                    <div className="flex gap-3">
-                      <button
-                        onClick={() => increasePrice(robot._id)}
-                        className="text-green-600 hover:text-green-800 cursor-pointer"
-                      >
-                        <Plus size={18} />
-                      </button>
-                      <button
-                        onClick={() => removeRobot(robot._id)}
-                        className="text-red-600 hover:text-red-800 cursor-pointer"
-                      >
-                        <Trash2 size={18} />
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+           {/* Robots */}
+{/* Robots */}
+{/* Robots */}
+<div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow h-[300px] overflow-y-auto overflow-x-hidden">
+  <p className="text-base font-bold">Robots</p>
+  <p className="text-2xl font-bold">{robots.length}</p>
+
+  {/* Add button */}
+  <button
+    onClick={addRobot}
+    className="mt-1 px-2 py-1 bg-green-600 text-white rounded hover:bg-green-700 text-sm"
+  >
+    ➕ Add Robot
+  </button>
+
+  {/* Robot list */}
+  <div className="space-y-2 mt-2">
+    {robots.length === 0 ? (
+      <p className="text-gray-500 text-sm italic">No robots available</p>
+    ) : (
+      robots.map((robot) => (
+        <div
+          key={robot._id}
+          className="flex justify-between items-center bg-gray-50 p-2 rounded"
+        >
+          <p className="text-sm font-medium">{robot.name}</p>
+          <button
+            onClick={() => removeRobot(robot._id)}
+            className="text-red-600 hover:text-red-800 cursor-pointer"
+          >
+            <Trash2 size={18} />
+          </button>
+        </div>
+      ))
+    )}
+  </div>
+</div>
+
+
+
+            
 
             {/* Engineers */}
             <div className="flex flex-col gap-2 rounded-lg p-4 border border-[#cedbe8] bg-white shadow h-[300px] overflow-y-auto overflow-x-hidden">
