@@ -103,7 +103,7 @@ const addRobot = async () => {
   try {
     const res = await api.post("/admin/robots", {
       name: `Robot ${robots.length + 1}`,
-      price: 1000,
+      rentPricePerMonth: 1000,
       health: 100,
       status: "Idle",
     });
@@ -137,10 +137,10 @@ const increasePrice = async (id) => {
     console.log("Robot ID:", id);
   // update UI immediately
   setRobots(prev =>
-    prev.map(r => (r._id === id ? { ...r, price: r.price + 1000 } : r))
+    prev.map(r => (r._id === id ? { ...r, rentPricePerMonth: r.rentPricePerMonth + 1000 } : r))
   );
   try {
-    await api.patch(`/admin/robots/${id}`, { price: robots.find(r => r._id === id).price + 1000 });
+    await api.patch(`/admin/robots/${id}`, { rentPricePerMonth: robots.find(r => r._id === id).rentPricePerMonth + 1000 });
     toast.success("Price increased!");
   } catch {
     toast.error("Failed to update price on server");
@@ -149,10 +149,10 @@ const increasePrice = async (id) => {
 
 const decreasePrice = async (id) => {
   setRobots(prev =>
-    prev.map(r => (r._id === id ? { ...r, price: r.price - 1000 } : r))
+    prev.map(r => (r._id === id ? { ...r, rentPricePerMonth: r.rentPricePerMonth - 1000 } : r))
   );
   try {
-    await api.patch(`/admin/robots/${id}`, { price: robots.find(r => r._id === id).price - 1000 });
+    await api.patch(`/admin/robots/${id}`, { rentPricePerMonth: robots.find(r => r._id === id).rentPricePerMonth - 1000 });
     toast.success("Price decreased!");
   } catch {
     toast.error("Failed to update price on server");
@@ -162,16 +162,23 @@ const decreasePrice = async (id) => {
 const repairRobot = async (id) => {
   setRobots(prev =>
     prev.map(r =>
-      r._id === id ? { ...r, health: Math.min(100, r.health + 20) } : r
+      r._id === id ? { ...r, health: Math.min(100, (r.health || 0) + 20) } : r
     )
   );
+
+  const updatedRobot = robots.find(r => r._id === id);
+  if (!updatedRobot) return;
+
   try {
-    await api.patch(`/admin/robots/${id}`, { health: robots.find(r => r._id === id).health + 20 });
+    await api.patch(`/admin/robots/${id}`, { 
+      health: Math.min(100, (updatedRobot.health || 0) + 20) 
+    });
     toast.success("Robot repaired!");
   } catch {
     toast.error("Failed to repair robot");
   }
 };
+
 // ================= Helpers =================
 const getHealthColor = (health) =>
   health > 70 ? "bg-green-600" : health > 40 ? "bg-yellow-500" : "bg-red-600";
@@ -390,7 +397,7 @@ const getStatusColor = (status) => {
                   <div>
                     <p className="text-sm font-medium">{robot.name}</p>
                     <p className="text-lg font-bold">
-                     ${robot.price?.toLocaleString() || "0"}
+                     ${robot.rentPricePerMonth?.toLocaleString() || "0"}
 
                     </p>
                   </div>
@@ -424,13 +431,10 @@ const getStatusColor = (status) => {
                 <div key={robot._id} className="flex flex-col gap-2">
                   <div className="flex justify-between items-center">
                     <p className="font-medium">{robot.name}</p>
-                    <p
-                      className={`text-sm font-bold ${getHealthColor(
-                        robot.health
-                      )} text-white px-2 rounded`}
-                    >
-                      {robot.health}%
-                    </p>
+                    <p className={`text-sm font-bold ${getHealthColor(robot.health || 0)} text-white px-2 rounded`}>
+  {(robot.health || 0)}%
+</p>
+
                   </div>
                   <div className="w-full h-3 bg-gray-200 rounded overflow-hidden">
                     <div
