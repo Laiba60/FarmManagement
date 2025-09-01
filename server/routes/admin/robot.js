@@ -23,20 +23,23 @@ router.get("/", async (req, res) => {
  */
 router.post("/", async (req, res) => {
   try {
-    const { name, model, status, battery, remainingSpray, location, rentPricePerMonth } = req.body;
+    // DB میں موجود سب robots لیں
+    const lastRobot = await Robot.findOne().sort({ createdAt: -1 });
 
-    if (!name) {
-      return res.status(400).json({ error: "Name is required" });
+    // last robot کے نام سے نمبر نکالیں
+    let nextNumber = 1;
+    if (lastRobot && lastRobot.name.match(/Robot (\d+)/)) {
+      nextNumber = parseInt(lastRobot.name.match(/Robot (\d+)/)[1]) + 1;
     }
 
     const newRobot = new Robot({
-      name,
-      model: model || "",
-      status: status || "available",
-      battery: battery || 100,
-      remainingSpray: remainingSpray || 100,
-      location: location || "",
-      rentPricePerMonth: rentPricePerMonth || 0
+      name: `Robot ${nextNumber}`,   // ← backend خود نام دے رہا ہے
+      model: req.body.model || "",
+      status: req.body.status || "available",
+      battery: req.body.battery || 100,
+      remainingSpray: req.body.remainingSpray || 100,
+      location: req.body.location || "",
+      rentPricePerMonth: req.body.rentPricePerMonth || 0
     });
 
     await newRobot.save();
@@ -46,6 +49,7 @@ router.post("/", async (req, res) => {
     res.status(500).json({ error: "Failed to add robot" });
   }
 });
+
 
 /**
  * PATCH /admin/robots/:id
