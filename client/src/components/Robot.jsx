@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-
+import React from "react";
 
 const SeedingSVG = () => (
   <svg viewBox="0 0 64 64" className="w-14 h-14 text-green-700" fill="none" stroke="currentColor" strokeWidth="2">
@@ -35,44 +34,16 @@ const HarvesterSVG = () => (
 );
 
 const Robot = () => {
-  const [tab, setTab] = useState("farmer"); 
-
-  const robots = {
-    farmer: [
-      {
-        title: "Seeding Robot",
-        desc: "High-precision sowing with minimal wastage.",
-        Icon: SeedingSVG,
-      },
-      {
-        title: "Smart Sprayer",
-        desc: "Targeted spray reduces chemicals by up to 40%.",
-        Icon: SprayerSVG,
-      },
-      {
-        title: "Compact Harvester",
-        desc: "Gentle picking to avoid crop damage.",
-        Icon: HarvesterSVG,
-      },
-    ],
-    admin: [
-      {
-        title: "Fleet Monitor",
-        desc: "Real-time robot telemetry & route playback.",
-        Icon: SprayerSVG,
-      },
-      {
-        title: "Task Scheduler",
-        desc: "Auto-assign jobs based on weather & fields.",
-        Icon: SeedingSVG,
-      },
-      {
-        title: "Maintenance Bot",
-        desc: "Predictive alerts, parts health & logs.",
-        Icon: HarvesterSVG,
-      },
-    ],
-  };
+  // Just a single array of robots now
+  const robots = [
+    { title: "Seeding Robot", desc: "High-precision sowing with minimal wastage.", Icon: SeedingSVG },
+    { title: "Smart Sprayer", desc: "Targeted spray reduces chemicals by up to 40%.", Icon: SprayerSVG },
+    { title: "Compact Harvester", desc: "Gentle picking to avoid crop damage.", Icon: HarvesterSVG },
+    { title: "Fleet Monitor", desc: "Real-time robot telemetry & route playback.", Icon: SprayerSVG },
+    { title: "Task Scheduler", desc: "Auto-assign jobs based on weather & fields.", Icon: SeedingSVG },
+    { title: "Maintenance Bot", desc: "Predictive alerts, parts health & logs.", Icon: HarvesterSVG },
+    // Add more robots here if needed
+  ];
 
   return (
     <section id="robots" className="bg-white py-16">
@@ -80,35 +51,12 @@ const Robot = () => {
         <div className="text-center mb-10">
           <p className="text-[17px] font-bold text-orange-400">Our Robots</p>
           <h2 className="text-3xl font-bold text-green-800">Meet Our Agricultural Robots</h2>
-
-          {/* Tabs */}
-          <div className="mt-6 inline-flex rounded-xl overflow-hidden border border-green-200">
-            <button
-              onClick={() => setTab("farmer")}
-              className={`px-5 py-2 text-sm md:text-base font-medium ${
-                tab === "farmer" ? "bg-green-600 text-white" : "bg-white text-green-700"
-              }`}
-            >
-              Farmer View
-            </button>
-            <button
-              onClick={() => setTab("admin")}
-              className={`px-5 py-2 text-sm md:text-base font-medium ${
-                tab === "admin" ? "bg-green-600 text-white" : "bg-white text-green-700"
-              }`}
-            >
-              Admin View
-            </button>
-          </div>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {robots[tab].map(({ title, desc, Icon }, i) => (
-            <div
-              key={i}
-              className="group bg-white rounded-2xl shadow hover:shadow-lg transition p-6 border border-gray-100"
-            >
+        {/* Scrollable robot container */}
+        <div className="max-h-[600px] overflow-y-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {robots.map(({ title, desc, Icon }, i) => (
+            <div key={i} className="group bg-white rounded-2xl shadow hover:shadow-lg transition p-6 border border-gray-100">
               <div className="flex items-center gap-4">
                 <div className="p-3 rounded-xl bg-green-50 group-hover:bg-green-100 transition">
                   <Icon />
@@ -116,18 +64,6 @@ const Robot = () => {
                 <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
               </div>
               <p className="mt-3 text-gray-600 text-sm">{desc}</p>
-
-              {/* CTA row */}
-              <div className="mt-5 flex items-center justify-between">
-                <span className="text-xs uppercase tracking-wide text-green-700 font-semibold">
-                  View details
-                </span>
-                {/* Tiny inline progress as a decorative SVG */}
-                <svg viewBox="0 0 120 6" className="w-24 h-1.5">
-                  <rect x="0" y="0" width="120" height="6" rx="3" fill="#e5f6ee" />
-                  <rect x="0" y="0" width={60 + i * 15} height="6" rx="3" fill="#16a34a" />
-                </svg>
-              </div>
             </div>
           ))}
         </div>

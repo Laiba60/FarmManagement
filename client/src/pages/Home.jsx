@@ -57,7 +57,7 @@ const Home = () => {
   Sign Up
 </Link>
 
-{/* Login Button (icon only but same size as Sign Up) */}
+
 <Link
   to="/login"
   className="flex items-center justify-center bg-green-700 px-4 py-2 rounded text-white hover:bg-green-800"
