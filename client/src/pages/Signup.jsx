@@ -63,12 +63,10 @@ const Signup = () => {
         {/* Navbar (Only Logo) */}
         <header className="flex items-center border-b border-solid border-b-[#e7edf4] bg-white px-4 sm:px-6 lg:px-10 py-3">
           <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c] bg-green-700">
-            <div className="h-12 w-12">
+            <div className="h-16 w-16">
               <img src={Logo} alt="No image" className="h-full w-full object-contain" />
             </div>
-            <h2 className="text-base  text-white sm:text-lg font-bold leading-tight tracking-[-0.015em]">
-              AgriBull
-            </h2>
+           
           </div>
         </header>
 

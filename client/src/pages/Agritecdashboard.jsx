@@ -93,12 +93,7 @@ const handleRent = async (id) => {
     </div>
 
   {/* Logo Text */}
-  <a
-    href="/"
-    className="text-white text-[17px] font-bold leading-normal"
-  >
-    AgriBull
-  </a>
+ 
 </div>
 
 

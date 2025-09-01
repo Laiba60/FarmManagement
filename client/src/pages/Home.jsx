@@ -33,104 +33,93 @@ const Home = () => {
     
   <div className="bg-white  max-w-full overflow-x-hidden font-roboto mx-5">
    
-    <header className="bg-white shadow-md fixed w-full z-50">
-      <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-3 md:px-8">
-        
-        {/* Logo */}
-        <div className="flex items-center space-x-2">
-          <img src={Picturelogo} alt="Logo" className="w-20 h-10" />
-          <span className="font-bold text-lg text-green-800">AgriBot</span>
-        </div>
+  <header className="bg-white shadow-md fixed w-full z-50">
+  <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-3 md:px-8">
+    
+    {/* Logo */}
+    <div className="flex items-center space-x-2">
+      <img src={Picturelogo} alt="Logo" className="w-20 h-10" />
+    </div>
 
-       
-        <nav className="hidden md:flex items-center space-x-6 font-medium">
-          <Link to="/" className="text-green-700 font-bold hover:underline">Home</Link>
-          <Link to="/dashboard" className="text-green-700 font-bold hover:underline">Owner Dashboard</Link>
-          <Link to="/Agritecdashboard" className="text-green-700 font-bold hover:underline">Farmer Dashboard</Link>
-          <Link to="/supportchat" className="text-green-700 font-bold hover:underline">SupportChat</Link>
-          
-         
-          <Link
-            to="/signup"
-            className="flex items-center gap-2 bg-green-700 px-4 py-2 rounded text-white font-medium hover:bg-green-800"
-          >
-          
-            <svg xmlns="http://www.w3.org/2000/svg" 
-              className="w-5 h-5" fill="none" viewBox="0 0 24 24" 
-              stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" 
-                d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/>
-              <circle cx="9" cy="7" r="4" />
-              <path strokeLinecap="round" strokeLinejoin="round" 
-                d="M20 8v6m3-3h-6" />
-            </svg>
-            Register
-          </Link>
-          <Link
-            to="/login"
-            className="flex items-center gap-2 bg-green-700 px-4 py-2 rounded text-white font-medium hover:bg-green-800"
-          >
-            {/* Login SVG */}
-            <svg xmlns="http://www.w3.org/2000/svg" 
-              className="w-5 h-5" fill="none" viewBox="0 0 24 24" 
-              stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" 
-                d="M15 12H3m6-6l-6 6 6 6M21 3h-6a2 2 0 00-2 2v14a2 2 0 002 2h6"/>
-            </svg>
-            Login
-          </Link>
-        </nav>
+    {/* Desktop Menu */}
+    <nav className="hidden md:flex items-center space-x-6 font-medium">
+      <Link to="/" className="text-green-700 font-bold hover:underline">Home</Link>
+      <Link to="/dashboard" className="text-green-700 font-bold hover:underline">Owner Dashboard</Link>
+      <Link to="/Agritecdashboard" className="text-green-700 font-bold hover:underline">Farmer Dashboard</Link>
+      <Link to="/supportchat" className="text-green-700 font-bold hover:underline">SupportChat</Link>
+      
+      {/* Sign Up Button (text only) */}
+      {/* Sign Up Button (text only) */}
+<Link
+  to="/signup"
+  className="bg-green-700 px-4 py-2 rounded text-white font-medium hover:bg-green-800"
+>
+  Sign Up
+</Link>
 
-       
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-green-700 focus:outline-none"
-        >
-          ☰
-        </button>
-      </div>
+{/* Login Button (icon only but same size as Sign Up) */}
+<Link
+  to="/login"
+  className="flex items-center justify-center bg-green-700 px-4 py-2 rounded text-white hover:bg-green-800"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" 
+    className="w-5 h-5" fill="none" viewBox="0 0 24 24" 
+    stroke="currentColor" strokeWidth="2">
+    <path strokeLinecap="round" strokeLinejoin="round" 
+      d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/>
+    <circle cx="9" cy="7" r="4" />
+    <path strokeLinecap="round" strokeLinejoin="round" 
+      d="M20 8v6m3-3h-6" />
+  </svg>
+</Link>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden flex flex-col space-y-4 px-4 pb-4 bg-white shadow">
-          <Link to="/" className="block py-2 text-green-700">Home</Link>
-          <Link to="/about" className="block py-2 text-green-700">Owner Dashboard</Link>
-          <Link to="/services" className="block py-2 text-green-700">Farmer Dashboard</Link>
-          <Link to="/contact" className="block py-2 text-green-700">Supportchat</Link>
+    </nav>
 
-          <Link
-            to="/signup"
-            className="flex items-center justify-center gap-2 bg-green-700 px-4 py-2 rounded text-white"
-          >
-            {/* Register SVG */}
-            <svg xmlns="http://www.w3.org/2000/svg" 
-              className="w-5 h-5" fill="none" viewBox="0 0 24 24" 
-              stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" 
-                d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/>
-              <circle cx="9" cy="7" r="4" />
-              <path strokeLinecap="round" strokeLinejoin="round" 
-                d="M20 8v6m3-3h-6" />
-            </svg>
-            Register
-          </Link>
+    {/* Mobile Menu Toggle */}
+    <button
+      onClick={() => setIsOpen(!isOpen)}
+      className="md:hidden p-2 text-green-700 focus:outline-none"
+    >
+      ☰
+    </button>
+  </div>
 
-          <Link
-            to="/login"
-            className="flex items-center justify-center gap-2 bg-green-700 px-4 py-2 rounded text-white"
-          >
-            {/* Login SVG */}
-            <svg xmlns="http://www.w3.org/2000/svg" 
-              className="w-5 h-5" fill="none" viewBox="0 0 24 24" 
-              stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" 
-                d="M15 12H3m6-6l-6 6 6 6M21 3h-6a2 2 0 00-2 2v14a2 2 0 002 2h6"/>
-            </svg>
-            Login
-          </Link>
-        </div>
-      )}
-    </header>
+  {/* Mobile Menu */}
+  {isOpen && (
+    <div className="md:hidden flex flex-col space-y-4 px-4 pb-4 bg-white shadow">
+      <Link to="/" className="block py-2 text-green-700">Home</Link>
+      <Link to="/about" className="block py-2 text-green-700">Owner Dashboard</Link>
+      <Link to="/services" className="block py-2 text-green-700">Farmer Dashboard</Link>
+      <Link to="/contact" className="block py-2 text-green-700">Supportchat</Link>
+
+      {/* Sign Up (text only) */}
+      <Link
+        to="/signup"
+        className="flex items-center justify-center bg-green-700 px-4 py-2 rounded text-white"
+      >
+        Sign Up
+      </Link>
+
+      {/* Login (icon only, with Register’s old icon) */}
+      <Link
+        to="/login"
+        className="flex items-center justify-center bg-green-700 p-2 rounded text-white"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" 
+          className="w-5 h-5" fill="none" viewBox="0 0 24 24" 
+          stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" 
+            d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/>
+          <circle cx="9" cy="7" r="4" />
+          <path strokeLinecap="round" strokeLinejoin="round" 
+            d="M20 8v6m3-3h-6" />
+        </svg>
+      </Link>
+    </div>
+  )}
+</header>
+
+
  
 
    <section

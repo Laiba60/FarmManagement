@@ -42,10 +42,10 @@ const SupportChat = () => {
       {/* Header (unchanged) */}
       <header className="flex flex-wrap items-center justify-between border-b border-solid border-b-[#e7edf4] px-4 sm:px-6 lg:px-10 py-3">
         <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c] bg-green-700">
-          <div className="h-12 w-12">
+          <div className="h-16 w-16">
             <img src={Logo} alt="Logo" className="h-full w-full object-contain" />
           </div>
-          <a href="/" className="text-white text-lg font-bold leading-tight tracking-[-0.015em]">AgriBull</a>
+          
         </div>
         <nav className="hidden sm:flex sm:flex-1 justify-end gap-8">
           <a href="/" className="text-green-700 text-[16px] font-bold  transition-colors">Home</a>

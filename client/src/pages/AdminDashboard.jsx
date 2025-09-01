@@ -212,16 +212,14 @@ const getStatusColor = (status) => {
           <div className="flex h-full min-h-[300px] lg:min-h-[700px] flex-col justify-between p-4">
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-3 bg-green-700">
-                <div className="h-12 w-12">
+                <div className="h-13 w-13">
                   <img
                     src={Logo}
                     alt="No image"
                     className="h-full w-full object-contain"
                   />
                 </div>
-                <h1 className="text-white text-lg font-semibold leading-normal">
-                  AgriBull
-                </h1>
+               
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#e7edf4]">
