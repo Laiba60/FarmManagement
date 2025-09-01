@@ -4,82 +4,71 @@ const cors = require('cors');
 const connectDB = require('./database');
 const setupSwagger = require('./swagger');  
 
-const app = express();
+// Import admin routes (CommonJS)
+const engineerRoutes = require("./routes/admin/engineer");
+const farmerRoutes = require("./routes/admin/farmer");
+const robotRoutes = require("./routes/admin/robot");
 
+const authRoutes = require('./routes/auth');
+const dashboardRoutes = require('./routes/dashboard');
+const chatbotRoutes = require('./routes/chatbot');
+const engineersRoutes = require('./routes/engineers');
+const farmersRoutes = require("./routes/farmers");
+const robotsRoutes = require('./routes/robots');
+const missionsRoutes = require("./routes/missions");
+const rentalsRoutes = require("./routes/rentals");
+
+const app = express();
 
 app.use(cors({
     origin: (origin, callback) => {
-       
         if (!origin) return callback(null, true);
-
-        
         if (origin.startsWith('http://localhost')) {
             return callback(null, true);
         }
-
-       
         callback(new Error('Not allowed by CORS'));
     },
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], // PATCH added
+    allowedHeaders: ['Content-Type', 'Authorization'], // optional but good
     credentials: true
 }));
 
+
 app.use(express.json());
 
-
 connectDB();
-
-
 setupSwagger(app);  
 
+// Example demo data
 const engineers = [
   { name: "Ali", expertise: "Precision Spraying", status: "Available" },
   { name: "Sara", expertise: "GPS Navigation", status: "Busy" },
   { name: "Ahmed", expertise: "Soil Analysis", status: "Available" },
 ];
-
 let batteryStatus = { value: 75 }; 
 let chemicalLevel = { value: 60 };
 
+app.get("/engineers-demo", (req, res) => res.json(engineers));
+app.get("/battery", (req, res) => res.json(batteryStatus));
+app.get("/chemical", (req, res) => res.json(chemicalLevel));
 
-app.get("/engineers", (req, res) => {
-  res.json(engineers);
-});
-
-app.get("/battery", (req, res) => {
-  res.json(batteryStatus);
-});
-
-app.get("/chemical", (req, res) => {
-  res.json(chemicalLevel);
-});
-
-const authRoutes = require('./routes/auth');
+// Normal routes
 app.use('/auth', authRoutes);
-
-const dashboardRoutes = require('./routes/dashboard');
 app.use('/dashboard', dashboardRoutes);
-
-
-const chatbotRoutes = require('./routes/chatbot');
 app.use('/chatbot', chatbotRoutes);
-
-const engineersRoutes = require('./routes/engineers');
 app.use('/engineers', engineersRoutes);
-const farmerRoutes = require("./routes/farmers");
-app.use("/farmers", farmerRoutes);
-const robotsRoutes = require('./routes/robots');
-app.use('/robots', robotsRoutes);
+app.use("/farmers", farmersRoutes);
 
-const missionsRoutes = require("./routes/missions");
 app.use("/missions", missionsRoutes);
-const rentalsRoutes = require("./routes/rentals");
 app.use("/rentals", rentalsRoutes);
 
+// Admin routes
+app.use("/admin/engineers", engineerRoutes);
+app.use("/admin/farmers", farmerRoutes);
+app.use("/admin/robots", robotRoutes);
 
-app.get('/', (req, res) => {
-    res.send(' Farm Management API Running');
-});
+// Root
+app.get('/', (req, res) => res.send('Farm Management API Running'));
 
 app.get('/faqs', (req, res) => {
     const faqs = [
@@ -88,7 +77,6 @@ app.get('/faqs', (req, res) => {
     ];
     res.json(faqs);
 });
-
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

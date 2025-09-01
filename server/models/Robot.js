@@ -3,7 +3,7 @@ const mongoose2 = require('mongoose');
 const robotSchema = new mongoose2.Schema({
   name: { type: String, required: true },
   model: String,
-  status: { type: String, enum: ['available','rented','maintenance'], default: 'available' },
+  status: { type: String, enum: ['available','rented','maintenance','Idle'], default: 'available' },
   battery: { type: Number, default: 100 },
   remainingSpray: { type: Number, default: 100 },
   location: String,
