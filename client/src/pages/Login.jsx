@@ -11,29 +11,42 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleLogin = async () => {
-    setError(''); // reset error
-    if (!username || !password) {
-      setError('Please enter username and password');
-      return;
+ const handleLogin = async () => {
+  setError(''); 
+  if (!username || !password) {
+    setError('Please enter username and password');
+    return;
+  }
+
+  try {
+    const res = await axios.post('http://localhost:5000/auth/login', {
+      username,
+      password
+    });
+
+    const token = res.data.token;
+    localStorage.setItem('token', token);
+
+  
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const decodedPayload = JSON.parse(atob(base64));
+
+
+    if (decodedPayload.role === 'admin') {
+      navigate('/dashboard'); 
+    } else if (decodedPayload.role === 'farmer') {
+      navigate('/Agritecdashboard'); 
+    } else {
+      setError('Unknown user role');
     }
 
-    try {
-      const res = await axios.post('http://localhost:5000/auth/login', {
-        username,
-        password
-      });
+  } catch (err) {
+    console.error('Login error:', err.response?.data || err);
+    setError(err.response?.data?.error || 'Login failed');
+  }
+};
 
-      // Save token to localStorage (optional)
-      localStorage.setItem('token', res.data.token);
-
-      // Navigate to dashboard
-      navigate("/dashboard");
-    } catch (err) {
-      console.error('Login error:', err.response?.data || err);
-      setError(err.response?.data?.error || 'Login failed');
-    }
-  };
 
   return (
     <div className="relative flex flex-col min-h-screen w-full bg-slate-50">
