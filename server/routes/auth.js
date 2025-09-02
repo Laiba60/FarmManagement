@@ -37,7 +37,8 @@ const router = express.Router();
  *                 example: password123
  *               role:
  *                 type: string
- *                 example: user
+ *                 enum: [admin, farmer]   # ✅ FIXED HERE
+ *                 example: farmer         # ✅ FIXED HERE
  *     responses:
  *       200:
  *         description: User registered successfully
@@ -65,8 +66,11 @@ router.post('/register', async (req, res) => {
         const existingUser = await User.findOne({ username });
         if (existingUser) return res.status(400).json({ error: 'User already exists' });
 
+        // ✅ Default role set to farmer if not provided
+        const userRole = role && ['admin', 'farmer'].includes(role) ? role : 'farmer';
+
         const hashedPassword = await bcrypt.hash(password, 10);
-        const user = new User({ username, password: hashedPassword, role });
+        const user = new User({ username, password: hashedPassword, role: userRole });
         await user.save();
 
         res.json({ message: 'User registered successfully' });
@@ -132,12 +136,10 @@ router.post('/login', async (req, res) => {
 
         res.json({ token });
     } catch (err) {
-    console.error('Signup error:', err.message); // logs main error message
-    console.error(err.stack); // logs full stack trace
-    res.status(500).json({ error: 'Server error', details: err.message }); // send error message to frontend
-}
-
-
+        console.error('Login error:', err.message);
+        console.error(err.stack);
+        res.status(500).json({ error: 'Server error', details: err.message });
+    }
 });
 
 module.exports = router;
