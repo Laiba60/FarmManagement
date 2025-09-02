@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Picturelogo from "../assets/images/Picturelogo.png";
 import BgImage from "../assets/images/WPS Photo Edit2.png";
 
-import bg from "../assets/images/bg.png";
+import farmeer from "../assets/images/farmeer.png";
 import Dot from "../assets/images/dot.png";
 import Dot2 from "../assets/images/dot2.png";
 import Dot3 from "../assets/images/dot3.png";
@@ -122,14 +122,12 @@ const Home = () => {
 
  
 
-   <section
-  className="pt-20 w-full bg-no-repeat bg-center bg-cover sm:bg-cover md:bg-cover"
-  style={{
-    backgroundImage: `url(${bg})`,
-    backgroundSize: "cover",       
-    backgroundPosition: "center",  
-  }}
->
+ <section className="relative w-full pt-20">
+  <img
+    src={farmeer}
+    alt="Farm Background"
+    className="absolute top-0 left-0 w-full h-full object-cover sm:object-cover md:object-cover"
+  />
   <div
     className="container mx-auto px-4 md:px-8 py-20 text-white"
     data-aos="fade-up"
