@@ -443,11 +443,18 @@ const getStatusColor = (status) => {
                     ></div>
                   </div>
                   <button
-                    onClick={() => repairRobot(robot._id)}
-                    className="mt-1 px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm"
-                  >
-                    Repair / Boost Health
-                  </button>
+  onClick={() => repairRobot(robot._id)}
+  className={`mt-1 px-2 py-1 text-white rounded text-sm ${
+    robot.health > 70
+      ? "bg-green-600 hover:bg-green-700"
+      : robot.health > 40
+      ? "bg-yellow-500 hover:bg-yellow-600"
+      :"bg-amber-800 hover:bg-amber-900"
+  }`}
+>
+  Repair / Boost Health
+</button>
+
                 </div>
               ))}
             </div>
