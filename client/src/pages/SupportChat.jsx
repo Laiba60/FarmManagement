@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Logo from "../assets/images/Picturelogo.png";
+import LogoutSvg from "../components/LogoutSvg";
+
 
 const SupportChat = () => {
   const navigate = useNavigate();
@@ -71,11 +73,13 @@ const SupportChat = () => {
           <a href="/Agritecdashboard" className="text-green-700 text-[16px] font-bold transition-colors">My Dashboard</a>
           {isLoggedIn ? (
             <button
-              onClick={handleLogout}
-              className="text-green-700 text-[16px] font-bold transition-colors"
-            >
-              Logout
-            </button>
+  onClick={handleLogout}
+  className="flex items-center gap-2 text-green-700 font-bold transition-colors"
+>
+  <LogoutSvg className="w-6 h-6" />
+  <span className="hidden sm:inline">Logout</span>
+</button>
+
           ) : (
             <a href="/login" className="text-green-700 text-[16px] font-bold transition-colors">Login</a>
           )}
@@ -100,11 +104,13 @@ const SupportChat = () => {
           <a href="/Agritecdashboard" className="text-green-700 text-[16px] font-bold">My Dashboard</a>
           {isLoggedIn ? (
             <button
-              onClick={handleLogout}
-              className="text-green-700 text-[16px] font-bold text-left"
-            >
-              Logout
-            </button>
+  onClick={handleLogout}
+  className="flex items-center gap-2 text-green-700 font-bold transition-colors"
+>
+  <LogoutSvg className="w-6 h-6" />
+  <span className="hidden sm:inline">Logout</span>
+</button>
+
           ) : (
             <a href="/login" className="text-green-700 text-[16px] font-bold">Login</a>
           )}
