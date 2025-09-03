@@ -4,7 +4,7 @@ const cors = require('cors');
 const connectDB = require('./database');
 const setupSwagger = require('./swagger');  
 
-// Import admin routes (CommonJS)
+
 const engineerRoutes = require("./routes/admin/engineer");
 const farmerRoutes = require("./routes/admin/farmer");
 const robotRoutes = require("./routes/admin/robot");
@@ -28,8 +28,8 @@ app.use(cors({
         }
         callback(new Error('Not allowed by CORS'));
     },
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], // PATCH added
-    allowedHeaders: ['Content-Type', 'Authorization'], // optional but good
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], 
+    allowedHeaders: ['Content-Type', 'Authorization'], 
     credentials: true
 }));
 
@@ -39,7 +39,7 @@ app.use(express.json());
 connectDB();
 setupSwagger(app);  
 
-// Example demo data
+
 const engineers = [
   { name: "Ali", expertise: "Precision Spraying", status: "Available" },
   { name: "Sara", expertise: "GPS Navigation", status: "Busy" },
@@ -52,7 +52,7 @@ app.get("/engineers-demo", (req, res) => res.json(engineers));
 app.get("/battery", (req, res) => res.json(batteryStatus));
 app.get("/chemical", (req, res) => res.json(chemicalLevel));
 
-// Normal routes
+
 app.use('/auth', authRoutes);
 app.use('/dashboard', dashboardRoutes);
 app.use('/chatbot', chatbotRoutes);
@@ -62,12 +62,12 @@ app.use("/farmers", farmersRoutes);
 app.use("/missions", missionsRoutes);
 app.use("/rentals", rentalsRoutes);
 
-// Admin routes
+
 app.use("/admin/engineers", engineerRoutes);
 app.use("/admin/farmers", farmerRoutes);
 app.use("/admin/robots", robotRoutes);
 
-// Root
+
 app.get('/', (req, res) => res.send('Farm Management API Running'));
 
 app.get('/faqs', (req, res) => {

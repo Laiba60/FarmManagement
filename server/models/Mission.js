@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 const missionSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User", // Farmer or whoever plans the mission
+    ref: "User",
     required: true,
   },
-  name: { type: String, required: true }, // e.g. "Spraying Mission"
+  name: { type: String, required: true }, 
   points: [
     {
       lat: { type: Number, required: true },
