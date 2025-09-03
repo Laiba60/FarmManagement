@@ -13,48 +13,7 @@ const router = express.Router();
  *   description: User authentication
  */
 
-/**
- * @swagger
- * /api/auth/register:
- *   post:
- *     summary: Register a new user
- *     tags: [Auth]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - username
- *               - password
- *             properties:
- *               username:
- *                 type: string
- *                 example: johndoe
- *               password:
- *                 type: string
- *                 example: password123
- *               role:
- *                 type: string
- *                 enum: [admin, farmer]   # ✅ FIXED HERE
- *                 example: farmer         # ✅ FIXED HERE
- *     responses:
- *       200:
- *         description: User registered successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: User registered successfully
- *       400:
- *         description: Bad request (missing fields or user exists)
- *       500:
- *         description: Server error
- */
+// ---------------- REGISTER ----------------
 router.post('/register', async (req, res) => {
     try {
         const { username, password, role } = req.body;
@@ -66,7 +25,7 @@ router.post('/register', async (req, res) => {
         const existingUser = await User.findOne({ username });
         if (existingUser) return res.status(400).json({ error: 'User already exists' });
 
-        // ✅ Default role set to farmer if not provided
+      
         const userRole = role && ['admin', 'farmer'].includes(role) ? role : 'farmer';
 
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -80,44 +39,7 @@ router.post('/register', async (req, res) => {
     }
 });
 
-/**
- * @swagger
- * /api/auth/login:
- *   post:
- *     summary: Login a user
- *     tags: [Auth]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - username
- *               - password
- *             properties:
- *               username:
- *                 type: string
- *                 example: johndoe
- *               password:
- *                 type: string
- *                 example: password123
- *     responses:
- *       200:
- *         description: Successfully logged in
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 token:
- *                   type: string
- *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
- *       400:
- *         description: Invalid credentials
- *       500:
- *         description: Server error
- */
+// ---------------- LOGIN ----------------
 router.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -131,10 +53,18 @@ router.post('/login', async (req, res) => {
         const token = jwt.sign(
             { id: user._id, role: user.role },
             process.env.JWT_SECRET,
-            { expiresIn: process.env.TOKEN_EXPIRES_IN }
+            { expiresIn: process.env.TOKEN_EXPIRES_IN || '7d' } 
         );
 
-        res.json({ token });
+       
+        res.json({
+            token,
+            role: user.role,
+            user: {
+                id: user._id,
+                username: user.username
+            }
+        });
     } catch (err) {
         console.error('Login error:', err.message);
         console.error(err.stack);
