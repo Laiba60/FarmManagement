@@ -46,12 +46,13 @@ export const getRentals = async () => {
 };
 
 
-export const rentNow = async (rentalId) => {
-  const res = await api.post(`/rentals/${rentalId}/rent`); 
+export const rentNow = async (rentalId, payload) => {
+  const res = await api.post(`/rentals/${rentalId}/rent`, payload);
   return res.data;
 };
-// Admin APIs
-// Admin APIs
+
+
+
 export const getAdminEngineers = async () => {
   const res = await api.get("/admin/engineers");
   return res.data;
@@ -67,7 +68,7 @@ export const getAdminRobots = async () => {
   return res.data;
 };
 
-// ✅ New POST APIs for plus icon
+
 export const addAdminEngineer = async (engineerData) => {
   const res = await api.post("/admin/engineers", engineerData);
   return res.data;

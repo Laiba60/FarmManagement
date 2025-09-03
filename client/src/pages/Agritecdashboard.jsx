@@ -56,16 +56,23 @@ const Agritecdashboard = () => {
     };
     fetchRentals();
   }, []);
-const handleRent = async (id) => {
+const handleRent = async (plan) => {
   try {
-    const res = await rentNow(id);
-    alert(`Rented successfully: ${res.message || "Plan booked!"}`);
+    const payload = {
+      userId: "farmer123",
+      duration: plan.duration
+    };
+
+    const res = await rentNow(plan._id, payload);
+    alert(` ${res.message}`);
   } catch (err) {
-   
-    const message = err.response?.data?.message || err.message || "Error booking rental plan";
-    alert(message);
+    const message = err.response?.data?.message || "Error booking rental";
+    alert(` ${message}`);
   }
 };
+
+
+
 
 
 
@@ -164,7 +171,7 @@ const handleRent = async (id) => {
 
 <div>
       <h2 className="text-[#111418] text-[22px] font-bold px-4 pb-3 pt-5">
-        Rental Prices
+       Robot Rental Plan
       </h2>
       <div className="grid grid-cols-[repeat(auto-fit,minmax(228px,1fr))] gap-2.5 px-4 py-3 @3xl:grid-cols-4">
         {rentals.map((plan) => (
@@ -186,7 +193,7 @@ const handleRent = async (id) => {
               </p>
             </div>
             <button
-              onClick={() => handleRent(plan._id)}
+              onClick={() => handleRent(plan)}
               className="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-bold"
             >
               Rent Now
