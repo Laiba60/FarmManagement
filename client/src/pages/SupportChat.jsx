@@ -74,10 +74,10 @@ const SupportChat = () => {
           {isLoggedIn ? (
             <button
   onClick={handleLogout}
-  className="flex items-center gap-2 text-green-700 font-bold transition-colors"
+  className="flex items-center gap-2 text-green-700 font-bold transition-colors cursor-pointer"
 >
   <LogoutSvg className="w-6 h-6" />
-  <span className="hidden sm:inline">Logout</span>
+  <span className="hidden sm:inline cursor-pointer">Logout</span>
 </button>
 
           ) : (
