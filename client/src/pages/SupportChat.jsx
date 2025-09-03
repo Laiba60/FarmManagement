@@ -9,7 +9,7 @@ const SupportChat = () => {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
 
-  // Fetch FAQs and Topics on mount
+ 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -39,7 +39,7 @@ const SupportChat = () => {
 
   return (
     <div className="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden" style={{ fontFamily: '"Roboto", Inter, "Noto Sans", sans-serif' }}>
-      {/* Header (unchanged) */}
+    
       <header className="flex flex-wrap items-center justify-between border-b border-solid border-b-[#e7edf4] px-4 sm:px-6 lg:px-10 py-3">
         <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c] bg-green-700">
           <div className="h-16 w-16">
@@ -55,12 +55,12 @@ const SupportChat = () => {
         </nav>
       </header>
 
-      {/* Main Content */}
+     
       <div className="px-4 sm:px-6 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
         <div className="layout-content-container flex flex-col w-full max-w-[960px] py-5">
           <h2 className="text-[#0d141c] text-[22px] sm:text-[28px] font-bold leading-tight px-2 sm:px-4 text-center pb-3 pt-5">How can we help?</h2>
 
-          {/* Chat Input */}
+         
           <div className="flex gap-2 px-2 sm:px-4 mb-4">
             <input
               type="text"
@@ -72,10 +72,10 @@ const SupportChat = () => {
             <button onClick={handleAsk} className="px-4 py-2 bg-green-700 text-white rounded ">Ask</button>
           </div>
 
-          {/* Chatbot Answer */}
+        
           {answer && <div className="p-3 bg-gray-100 rounded mb-4"><p>{answer}</p></div>}
 
-          {/* Popular topics */}
+        
           <h2 className="text-[#0d141c] text-xl sm:text-[22px] font-bold px-2 sm:px-4 pb-3 pt-5">Popular topics</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 p-2 sm:p-4">
             {topics.map((t, i) => (
@@ -86,7 +86,7 @@ const SupportChat = () => {
             ))}
           </div>
 
-          {/* FAQs */}
+        
           <h2 className="text-[#0d141c] text-xl sm:text-[22px] font-bold px-2 sm:px-4 pb-3 pt-5">Frequently asked questions</h2>
           <div className="flex flex-col p-2 sm:p-4">
             {faqs.map((f, i) => (

@@ -17,12 +17,12 @@ const Signup = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Handle input changes
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submit
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -34,17 +34,17 @@ const Signup = () => {
     try {
       setLoading(true);
 
-      // Axios POST request
+      
       const res = await axios.post("http://localhost:5000/auth/register", {
         username: formData.username,
         email: formData.email,
         password: formData.password,
-        role: "farmer", // default role
+        role: "farmer", 
       });
 
       console.log("User registered:", res.data);
 
-      // Redirect to dashboard if success
+    
       navigate("/dashboard");
     } catch (err) {
       console.error("Signup error:", err.response?.data || err.message);
@@ -60,7 +60,7 @@ const Signup = () => {
       style={{ fontFamily: 'Inter, "Noto Sans", sans-serif' }}
     >
       <div className="layout-container flex h-full grow flex-col">
-        {/* Navbar (Only Logo) */}
+       
         <header className="flex items-center border-b border-solid border-b-[#e7edf4] bg-white px-4 sm:px-6 lg:px-10 py-3">
           <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c] bg-green-700">
             <div className="h-16 w-16">
@@ -70,7 +70,7 @@ const Signup = () => {
           </div>
         </header>
 
-        {/* Signup Form */}
+       
         <div className="flex flex-1 justify-center py-5 px-4 sm:px-8 md:px-20 lg:px-40">
           <div className="flex w-full max-w-[512px] flex-col py-5">
             <h2 className="pb-3 pt-5 text-center text-green-700 text-[22px] sm:text-[26px] md:text-[28px] font-bold leading-tight">
@@ -78,7 +78,7 @@ const Signup = () => {
             </h2>
 
             <form onSubmit={handleSubmit}>
-              {/* Username */}
+            
               <div className="flex w-full max-w-[480px] flex-wrap items-end gap-4 px-2 sm:px-4 py-2 sm:py-3">
                 <label className="flex flex-col min-w-40 flex-1">
                   <input
@@ -92,7 +92,7 @@ const Signup = () => {
                 </label>
               </div>
 
-              {/* Email */}
+            
               <div className="flex w-full max-w-[480px] flex-wrap items-end gap-4 px-2 sm:px-4 py-2 sm:py-3">
                 <label className="flex flex-col min-w-40 flex-1">
                   <input
@@ -106,7 +106,7 @@ const Signup = () => {
                 </label>
               </div>
 
-              {/* Password */}
+             
               <div className="flex w-full max-w-[480px] flex-wrap items-end gap-4 px-2 sm:px-4 py-2 sm:py-3">
                 <label className="flex flex-col min-w-40 flex-1">
                   <input
@@ -120,7 +120,7 @@ const Signup = () => {
                 </label>
               </div>
 
-              {/* Confirm Password */}
+             
               <div className="flex w-full max-w-[480px] flex-wrap items-end gap-4 px-2 sm:px-4 py-2 sm:py-3">
                 <label className="flex flex-col min-w-40 flex-1">
                   <input
@@ -134,12 +134,12 @@ const Signup = () => {
                 </label>
               </div>
 
-              {/* Error Message */}
+              
               {error && (
                 <p className="text-red-500 text-sm text-center">{error}</p>
               )}
 
-              {/* Submit Button */}
+            
               <div className="flex px-2 sm:px-4 py-3">
                 <button
                   type="submit"

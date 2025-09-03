@@ -6,7 +6,7 @@ import Logo from "../assets/images/Picturelogo.png";
 const Login = () => {
   const navigate = useNavigate();
 
-  // State for username and password
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -52,7 +52,7 @@ const Login = () => {
     <div className="relative flex flex-col min-h-screen w-full bg-slate-50">
       <div className="flex flex-col flex-1">
 
-        {/* Header (Only Logo) */}
+
         <header className="flex items-center border-b border-solid border-b-[#e7edf4] px-4 sm:px-6 lg:px-10 py-3">
           <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c] bg-green-700">
             <div className="h-16 w-16">
@@ -62,21 +62,20 @@ const Login = () => {
           </div>
         </header>
 
-        {/* Login Form Center */}
+ 
         <div className="flex flex-1 items-center justify-center px-3 sm:px-6">
           <div className="flex flex-col w-full max-w-[512px]">
 
-            {/* Title */}
+           
             <h2 className=" text-green-700 text-[22px] sm:text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5">
               Log in to your account
             </h2>
 
-            {/* Error message */}
+       
             {error && (
               <p className="text-red-600 text-center px-4 py-2">{error}</p>
             )}
 
-            {/* Username */}
             <div className="flex w-full flex-wrap items-end gap-4 px-4 py-3">
               <label className="flex flex-col min-w-40 flex-1">
                 <input
@@ -88,7 +87,7 @@ const Login = () => {
               </label>
             </div>
 
-            {/* Password */}
+           
             <div className="flex w-full flex-wrap items-end gap-4 px-4 py-3">
               <label className="flex flex-col min-w-40 flex-1">
                 <input
@@ -101,7 +100,7 @@ const Login = () => {
               </label>
             </div>
 
-            {/* Remember me */}
+          
             <div className="flex items-center gap-4 bg-slate-50 px-4 min-h-12 sm:min-h-14 justify-between">
               <p className="text-[#0d141c] text-sm sm:text-base font-normal flex-1 truncate">Remember me</p>
               <div className="shrink-0">
@@ -112,7 +111,7 @@ const Login = () => {
               </div>
             </div>
 
-            {/* Login Button */}
+          
             <div className="flex px-4 py-3">
               <button
                 onClick={handleLogin}
@@ -121,7 +120,7 @@ const Login = () => {
               </button>
             </div>
 
-            {/* Forgot Password */}
+           
             <p className="text-[#49739c] text-xs sm:text-sm text-center underline px-4 pt-1 pb-3">
               Dont have an account? <a href="/signup" className="font-semibold">Sign up</a>
             </p>
