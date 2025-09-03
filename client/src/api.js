@@ -1,18 +1,15 @@
-import axios from "axios";
-
-const BASE_URL = "http://localhost:5000"; 
+import axios from 'axios';
 
 const api = axios.create({
-  baseURL: BASE_URL,
+  baseURL: 'http://localhost:5000', 
 });
 
 
-
-api.interceptors.request.use((req) => {
-  const token = localStorage.getItem("token");
-  if (token) req.headers.Authorization = `Bearer ${token}`;
-  return req;
-});
+api.interceptors.request.use(config => {
+  const token = localStorage.getItem('token');
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+}, err => Promise.reject(err));
 
 export const getMyMissions = async () => {
   const res = await api.get("/missions/my");

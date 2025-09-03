@@ -20,7 +20,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
 
-        {/* Admin-only dashboard */}
+   
         <Route
           path="/dashboard"
           element={
@@ -30,7 +30,7 @@ function App() {
           }
         />
 
-        {/* Farmer-only dashboard */}
+
         <Route
           path="/Agritecdashboard"
           element={

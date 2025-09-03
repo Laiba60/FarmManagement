@@ -6,72 +6,63 @@ import Logo from "../assets/images/Picturelogo.png";
 const Login = () => {
   const navigate = useNavigate();
 
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
- const handleLogin = async () => {
-  setError(''); 
-  if (!username || !password) {
-    setError('Please enter username and password');
-    return;
-  }
-
-  try {
-    const res = await axios.post('http://localhost:5000/auth/login', {
-      username,
-      password
-    });
-
-    const token = res.data.token;
-    localStorage.setItem('token', token);
-
-  
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    const decodedPayload = JSON.parse(atob(base64));
-
-
-    if (decodedPayload.role === 'admin') {
-      navigate('/dashboard'); 
-    } else if (decodedPayload.role === 'farmer') {
-      navigate('/Agritecdashboard'); 
-    } else {
-      setError('Unknown user role');
+  const handleLogin = async () => {
+    setError('');
+    if (!username || !password) {
+      setError('Please enter username and password');
+      return;
     }
 
-  } catch (err) {
-    console.error('Login error:', err.response?.data || err);
-    setError(err.response?.data?.error || 'Login failed');
-  }
-};
+    try {
+      const res = await axios.post('http://localhost:5000/auth/login', {
+        username,
+        password
+      });
 
+      const { token, role, user } = res.data;
+
+      
+      localStorage.setItem('token', token);
+      localStorage.setItem('role', role);
+      localStorage.setItem('username', user.username);
+
+
+      if (role === 'admin') {
+        navigate('/dashboard');
+      } else if (role === 'farmer') {
+        navigate('/Agritecdashboard');
+      } else {
+        setError('Unknown user role');
+      }
+
+    } catch (err) {
+      console.error('Login error:', err.response?.data || err);
+      setError(err.response?.data?.error || 'Login failed');
+    }
+  };
 
   return (
     <div className="relative flex flex-col min-h-screen w-full bg-slate-50">
       <div className="flex flex-col flex-1">
-
 
         <header className="flex items-center border-b border-solid border-b-[#e7edf4] px-4 sm:px-6 lg:px-10 py-3">
           <div className="flex items-center gap-2 sm:gap-4 text-[#0d141c] bg-green-700">
             <div className="h-16 w-16">
               <img src={Logo} alt="No image" className="h-full w-full object-contain" />
             </div>
-            
           </div>
         </header>
 
- 
         <div className="flex flex-1 items-center justify-center px-3 sm:px-6">
           <div className="flex flex-col w-full max-w-[512px]">
-
-           
             <h2 className=" text-green-700 text-[22px] sm:text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5">
               Log in to your account
             </h2>
 
-       
             {error && (
               <p className="text-red-600 text-center px-4 py-2">{error}</p>
             )}
@@ -87,7 +78,6 @@ const Login = () => {
               </label>
             </div>
 
-           
             <div className="flex w-full flex-wrap items-end gap-4 px-4 py-3">
               <label className="flex flex-col min-w-40 flex-1">
                 <input
@@ -100,7 +90,6 @@ const Login = () => {
               </label>
             </div>
 
-          
             <div className="flex items-center gap-4 bg-slate-50 px-4 min-h-12 sm:min-h-14 justify-between">
               <p className="text-[#0d141c] text-sm sm:text-base font-normal flex-1 truncate">Remember me</p>
               <div className="shrink-0">
@@ -111,7 +100,6 @@ const Login = () => {
               </div>
             </div>
 
-          
             <div className="flex px-4 py-3">
               <button
                 onClick={handleLogin}
@@ -120,7 +108,6 @@ const Login = () => {
               </button>
             </div>
 
-           
             <p className="text-[#49739c] text-xs sm:text-sm text-center underline px-4 pt-1 pb-3">
               Dont have an account? <a href="/signup" className="font-semibold">Sign up</a>
             </p>
