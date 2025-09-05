@@ -228,21 +228,26 @@ const getStatusColor = (status) => {
                   </p>
                 </div>
                 <div className="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg">
-                  <p className="text-[#0d141c] text-[17px] font-bold">Robots</p>
+                  <p className="text-[#0d141c] text-[17px] font-bold cursor-pointer">
+                    <Link to="/">Robots</Link>
+                    </p>
                 </div>
                 <div className="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg">
-                  <p className="text-[#0d141c] text-[17px] font-bold">
-                    Engineers
+                  <p className="text-[#0d141c] text-[17px] font-bold cursor-pointer">
+                    <Link to="/Agritecdashboard">Engineers</Link>
+                   
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg">
+                  <p className="text-[#0d141c] text-[17px] font-bold cursor-pointer">
+                    <Link to="/Agritecdashboard">Rentals</Link>
+                    
                   </p>
                 </div>
                 <div className="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg">
                   <p className="text-[#0d141c] text-[17px] font-bold">
-                    Rentals
-                  </p>
-                </div>
-                <div className="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg">
-                  <p className="text-[#0d141c] text-[17px] font-bold">
-                    Settings
+                    <Link to="/login">Account</Link>
+                    
                   </p>
                 </div>
               </div>

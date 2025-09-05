@@ -132,15 +132,19 @@ const onSavePreset = async (preset) => {
                   <p className="text-[17px] font-bold">Missions</p>
                 </div>
                 <div className="flex items-center gap-3 px-3 py-2">
-                  <p className="text-[17px] font-bold">Robots</p>
+                  <p className="text-[17px] font-bold cursor-pointer">
+                     <Link to="/">Robots</Link>
+                  </p>
                 </div>
                 <div className="flex items-center gap-3 px-3 py-2">
-                  <p className="text-[17px] font-bold">
+                  <p className="text-[17px] font-bold cursor-pointer">
                     <Link to="/supportchat">Support</Link>
                   </p>
                 </div>
                 <div className="flex items-center gap-3 px-3 py-2">
-                  <p className="text-[17px] font-bold">Account</p>
+                  <p className="text-[17px] font-bold cursor-pointer">
+                  <Link to="/login">Account</Link>
+                  </p>
                 </div>
               </div>
             </div>
