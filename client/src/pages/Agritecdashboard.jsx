@@ -90,25 +90,21 @@ const onSavePreset = async (preset) => {
 };
 
 
-
-
-
-
   return (
     <div
       className="relative flex min-h-screen flex-col bg-slate-50 overflow-x-hidden"
       style={{ fontFamily: 'Inter, "Noto Sans", sans-serif' }}
     >
       <div className="layout-container flex h-full grow flex-col lg:flex-row">
-        {/* Sidebar */}
+       
         <div className="w-full lg:w-80 flex-shrink-0">
           <div className="flex h-full min-h-[300px] lg:min-h-[700px] flex-col justify-between bg-slate-50 p-4 border-b lg:border-b-0">
             <div className="flex flex-col gap-4">
-              {/* Logo */}
+              
             
 
 <div className="flex gap-3 items-center bg-green-700">
-  {/* Logo Image */}
+ 
     <div className="h-15 w-15">
       <img
         src={Logo}
@@ -117,12 +113,12 @@ const onSavePreset = async (preset) => {
       />
     </div>
 
-  {/* Logo Text */}
+
  
 </div>
 
 
-              {/* Menu */}
+             
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#e7edf4]">
                  <p className="text-[17px] font-bold">Dashboard</p>
@@ -151,9 +147,9 @@ const onSavePreset = async (preset) => {
           </div>
         </div>
 
-        {/* Main Content */}
+       
         <div className="flex-1 flex flex-col">
-          {/* Header */}
+         
           <div className="flex flex-wrap justify-between gap-3 p-4">
             <div className="flex flex-col gap-2">
               <p className="text-[28px] lg:text-[32px] font-bold leading-tight">
@@ -166,9 +162,9 @@ const onSavePreset = async (preset) => {
             </div>
           </div>
 
-          {/* Sections */}
+       
           <div className="space-y-6">
-            {/* Robot Features */}
+            
             <Section
               title="Robot Features"
               features={[
@@ -235,12 +231,6 @@ const onSavePreset = async (preset) => {
       </div>
     </div>
            
-
-
-
-
-
-            {/* Precision Details */}
             <div className="px-4">
       <h2 className="text-[22px] font-bold pb-3">Precision Spraying Details</h2>
 
@@ -272,7 +262,7 @@ const onSavePreset = async (preset) => {
       </div>
     </div>
 
-            {/* Engineers List */}
+          
          <div className="px-4">
   <h2 className="text-[22px] font-bold pb-3">Available Farm Engineers</h2>
   

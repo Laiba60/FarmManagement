@@ -37,19 +37,19 @@ const AdminDashboard = () => {
     fetchData();
   }, []);
 
-  // 🔹 Alerts
+ 
 
 
-// ================= CRUD Actions =================
 
-// Engineers
+
+
 const addEngineer = async () => {
   try {
     const res = await api.post("/admin/engineers", {
       name: `Engineer ${engineers.length + 1}`,
     });
     setEngineers(prev => {
-      // prevent duplicates
+     
       const exists = prev.find(e => e._id === res.data._id);
       if (exists) return prev;
       return [...prev, res.data];
@@ -70,7 +70,7 @@ const removeEngineer = async (id) => {
   }
 };
 
-// Farmers
+
 const addFarmer = async () => {
   try {
     const res = await api.post("/admin/farmers", {
@@ -98,7 +98,7 @@ const removeFarmer = async (id) => {
   }
 };
 
-// Robots
+
 const addRobot = async () => {
   try {
     const res = await api.post("/admin/robots", {
@@ -108,12 +108,12 @@ const addRobot = async () => {
       status: "Idle",
     });
 
-    const newRobot = res.data.robot; // 👈 robot object nikalo
+    const newRobot = res.data.robot;
 
     setRobots(prev => {
       const exists = prev.find(r => r._id === newRobot._id);
       if (exists) return prev;
-      return [...prev, newRobot]; // 👈 sirf robot add karo
+      return [...prev, newRobot]; 
     });
 
     toast.success("Robot added!");
@@ -135,7 +135,7 @@ const removeRobot = async (id) => {
 
 const increasePrice = async (id) => {
     console.log("Robot ID:", id);
-  // update UI immediately
+  
   setRobots(prev =>
     prev.map(r => (r._id === id ? { ...r, rentPricePerMonth: r.rentPricePerMonth + 1000 } : r))
   );
@@ -179,7 +179,7 @@ const repairRobot = async (id) => {
   }
 };
 
-// ================= Helpers =================
+
 const getHealthColor = (health) =>
   health > 70 ? "bg-green-600" : health > 40 ? "bg-yellow-500" : "bg-red-600";
 
@@ -200,7 +200,7 @@ const getStatusColor = (status) => {
 
 
 
-  // ================= Render =================
+ 
   return (
     <div
       className="relative flex min-h-screen flex-col bg-slate-50 overflow-x-hidden"
