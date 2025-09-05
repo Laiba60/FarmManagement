@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import RealTimeMonitor from "../components/RealTimeMonitor";
-import MissionPlanMap from "../components/MissionPlanMap";
+
+
+import api, { getMyMissions, createMission } from "../api";
+  
 
 import Section from "../components/Section";
 import Logo from "../assets/images/Picturelogo.png";
@@ -16,6 +19,9 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { getRentals, rentNow } from "../api";
+import MissionCreator from "../components/MissionCreator";
+import PresetsForm from "../components/PresetsForm";
+
 const Agritecdashboard = () => {
   const [engineers, setEngineers] = useState([]);
   const [battery, setBattery] = useState(0);
@@ -70,6 +76,17 @@ const handleRent = async (plan) => {
     const message = err.response?.data?.message || "Error booking rental";
     alert(` ${message}`);
   }
+};
+const farmerId = "farmer-001";
+const [presets, setPresets] = useState([]);
+
+useEffect(() => {
+  api.get(`/api/presets/${farmerId}`).then((res) => setPresets(res.data));
+}, []);
+
+const onSavePreset = async (preset) => {
+  const res = await api.post(`/api/presets/${farmerId}`, preset);
+  setPresets((prev) => [...prev, res.data.preset]);
 };
 
 
@@ -278,18 +295,22 @@ const handleRent = async (plan) => {
 
 
             
- <Section
+<Section
   title="Mission Planning"
   features={[
     {
-      
-      title: "Interactive Map",
-      desc: "Plan your mission with real-time mapping tools.",
-      component: <MissionPlanMap />, 
+      title: "Mission Control",
+      desc: "Select presets or create a new robot mission in your 200x200 ft tunnel area.",
+      component: (
+        <div className="grid md:grid-cols-2 gap-6">
+          <PresetsForm onSave={onSavePreset} presets={presets} />
+          <MissionCreator farmerId={farmerId} presets={presets} />
+        </div>
+      ),
     },
-    
   ]}
-  />
+/>
+
 
           </div>
         </div>
