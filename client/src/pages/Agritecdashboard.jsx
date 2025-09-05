@@ -29,7 +29,7 @@ const Agritecdashboard = () => {
         setEngineers(engineersData);
 
         const batteryData = await getBatteryStatus();
-        setBattery(batteryData.value); // depends on API response
+        setBattery(batteryData.value); 
 
         const chemicalData = await getChemicalLevel();
         setChemical(chemicalData.value);
