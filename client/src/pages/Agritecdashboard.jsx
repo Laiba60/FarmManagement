@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RealTimeMonitor from "../components/RealTimeMonitor";
-import MissionPlanMap from "../components/missionplanmap";
+import MissionPlanMap from "../components/MissionPlanMap";
+
 import Section from "../components/Section";
 import Logo from "../assets/images/Picturelogo.png";
 import { getEngineers, getBatteryStatus, getChemicalLevel } from "../api";
