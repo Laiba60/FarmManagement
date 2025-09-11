@@ -49,12 +49,7 @@ const Home = () => {
       <Link to="/supportchat" className="text-green-700 font-bold hover:underline">SupportChat</Link>
       
      
-<Link
-  to="/signup"
-  className="bg-green-700 px-4 py-2 rounded text-white font-medium hover:bg-green-800"
->
-  Sign Up
-</Link>
+
 
 
 <Link
@@ -92,12 +87,7 @@ const Home = () => {
       <Link to="/contact" className="block py-2 text-green-700">Supportchat</Link>
 
      
-      <Link
-        to="/signup"
-        className="flex items-center justify-center bg-green-700 px-4 py-2 rounded text-white"
-      >
-        Sign Up
-      </Link>
+     
 
      
       <Link
