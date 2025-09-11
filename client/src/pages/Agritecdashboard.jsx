@@ -165,24 +165,7 @@ const onSavePreset = async (preset) => {
        
           <div className="space-y-6">
             
-            <Section
-              title="Robot Features"
-              features={[
-                {
-                  subtitle: "Precision Spraying",
-                  title: "Advanced Nozzle Control",
-                  desc: "Our robots use advanced nozzle control technology to ensure precise and efficient spraying.",
-                  img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDSof2Gwo5mDZH1I6Kc5beEw-z85k1FCMNGymFr8kcUzQSZyZy0NoTX2HQquKA3Ob8ih_OTiplee43r9SKbtBhjrCrO1dZCUCMBJxxRBxIQuZqLZVvGhaw4o7olU7HCrfDbUK2MIpAgmb2Ml4QYQVHH97vQN8R_f64mr81t_ji6V8Qhzbq1eKbIxIAscqabWMBQc0dRnt1pA9pD-OTbWrrscDdnk1wzDdyWbREm3xJOVPMgsSVOEgrvxS8z3RZUz3FMa-3YLE5bwlPR",
-                },
-                {
-                  subtitle: "Autonomous Navigation",
-                  title: "GPS-Guided Precision",
-                  desc: "Equipped with GPS-guided navigation, our robots autonomously navigate fields with accuracy.",
-                  img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAy-eqUAHpr4qWimtoaVpMk0mfL1KWxLL0vRiNHsISAzTe2NTgrGS4fSvwS03RL9EkFtmUWny0mOllKZZZ-dt-00zp4D-nr3PkDjdlP8JoCLcOYl33JtMzs6YmRFIAysnOlq_vf3WnocVUkTSAsVGp5MrQuctM2EZTnU0nlC5Pa1dhTlxiaw1e-xlW52s9B_bq617RZ4iaB5Jxy8N90wbF6PryNZ5cmnTH5g-bmzzukxyn6i1FwZFVmZJrmJeY1V4DLR3RgSHR_Hy1p",
-                },
-              
-              ]}
-            />
+            
             <div className="px-4">
   <RealTimeMonitor />
 </div>
